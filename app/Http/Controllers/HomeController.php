@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Hotel;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        // lấy ra 5 phòng đầu tiên trong bảng rooms
-        $rooms = Room::take(5)->get();
+
+        $rooms = Room::with('reserved')->take(3)->get();
 
         return view('home.index', compact('rooms'));
+    }
+    public function show($id)
+    {
+        $room = Room::with('reserved')->find($id);
+        return view('home.show', compact('room'));
     }
 }
