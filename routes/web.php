@@ -22,4 +22,5 @@ Route::get('/booking', function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home.index');
     Route::get('autocomplete', 'autocomplete')->name('autocomplete');
+
 });

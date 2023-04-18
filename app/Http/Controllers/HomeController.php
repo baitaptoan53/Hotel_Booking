@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\City;
+
 use App\Models\Hotel;
 use App\Models\Room;
 use Illuminate\Http\JsonResponse;
@@ -14,6 +16,7 @@ class HomeController extends Controller
     public function index()
     {
 
+
         $rooms = Room::with('reserved')->take(3)->get();
         // đếm tổng số phòng 
         $count_room = Room::count();
@@ -23,6 +26,9 @@ class HomeController extends Controller
     {
         $room = Room::with('reserved')->find($id);
         return view('home.show', compact('room'));
+
+        
+        return view('home.index');
     }
     public function autocomplete(Request $request): JsonResponse
     {
