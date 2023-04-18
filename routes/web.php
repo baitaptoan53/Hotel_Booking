@@ -19,3 +19,11 @@ Route::get('/',[HomeController::class, 'index'])->name('home.index');
 Route::get('/booking', function () {
     return view('booking.index');
 });
+
+Route::get('/contact', function () {
+    return view('contact.index');
+});
+
+Route::get('/room', function () {
+    return view('room.index');
+});

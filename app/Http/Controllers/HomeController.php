@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Hotel;
 use App\Models\Room;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class HomeController extends Controller
     public function index()
     {
 
+
         $rooms = Room::with('reserved')->take(3)->get();
 
         return view('home.index', compact('rooms'));
@@ -20,5 +22,8 @@ class HomeController extends Controller
     {
         $room = Room::with('reserved')->find($id);
         return view('home.show', compact('room'));
+
+        
+        return view('home.index');
     }
 }
