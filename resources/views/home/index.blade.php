@@ -60,12 +60,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <select class="form-select">
-                                <option selected>Adult</option>
-                                <option value="1">Adult 1</option>
-                                <option value="2">Adult 2</option>
-                                <option value="3">Adult 3</option>
-                            </select>
+                            <select class="form-select" id="search" name="city_name"></select>
                         </div>
                         <div class="col-md-3">
                             <select class="form-select">
@@ -84,6 +79,7 @@
         </div>
     </div>
 </div>
+
 <!-- Booking End -->
 
 
@@ -101,7 +97,7 @@
                         <div class="border rounded p-1">
                             <div class="border rounded text-center p-4">
                                 <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
-                                <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                <h2 class="mb-1" data-toggle="counter-up">{{$count_room}}</h2>
                                 <p class="mb-0">Rooms</p>
                             </div>
                         </div>
@@ -165,7 +161,8 @@
                         <img class="img-fluid" src="{{$room->photo == ' '  ? $room->photo[0]->photo : 'img/room-1.jpg'
                         }}" alt="">
                         <small
-                            class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">{{number_format($room->reserved->price)}} $/Day</small>
+                            class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">{{number_format($room->reserved->price)}}
+                            $/Day</small>
                         </small>
                     </div>
                     <div class="p-4 mt-2">
@@ -186,8 +183,9 @@
                             <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
                         </div>
                         <p class="text-body mb-3">{{
-                            // nếu dài quá thì để 3 dấu chấm 
-                            strlen($room->description) > 150 ? substr($room->description, 0, 100) . '...' : $room->description
+                            // nếu dài quá thì để 3 dấu chấm
+                            strlen($room->description) > 150 ? substr($room->description, 0, 100) . '...' :
+                            $room->description
                             }}</p>
                         <div class="d-flex justify-content-between">
                             <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
@@ -483,4 +481,32 @@
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
 @endsection
+@push('scripts')
+<script type="text/javascript">
+    var path = "{{ route('autocomplete') }}";
+  
+    $('#search').select2({
+        placeholder: 'Select an city',
+        tags: true,
+        ajax: {
+          url: path,
+          dataType: 'json',
+          delay: 250,
+          processResults: function (data) {
+            return {
+              results:  $.map(data, function (item) {
+                    return {
+                        text: item.city_name,
+                        id: item.id
+                    }
+                })
+            };
+          },
+          cache: true
+        }
+      });
+  
+</script>
+@endpush

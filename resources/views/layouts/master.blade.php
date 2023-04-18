@@ -9,7 +9,6 @@
                <meta content="" name="description">
 
                <!-- Favicon -->
-               <link href="img/favicon.ico" rel="icon">
 
                <!-- Google Web Fonts -->
                <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,18 +43,21 @@
                               @yield('content')
                               @include('layouts.footer')
                </div>
-               <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+               <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
                <script src="{{asset('js/main.js')}}"></script>
                <script src="{{asset('js/counterup.min.js')}}"></script>
-               <script src="{{asset('js/waypoints.min.js')}}"></script>
-               <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-               <script src="{{asset('js/wow.min.js')}}"></script>
                <script src="{{asset('js/easing.min.js')}}"></script>
+               <script src="{{asset('js/owl.carousel.min.js')}}"></script>
                <script src="{{asset('js/moment-timezone.min.js')}}"></script>
                <script src="{{asset('js/moment.min.js')}}"></script>
                <script src="{{asset('js/tempusdominus-bootstrap-4.min.js')}}"></script>
-
+               <script src="{{asset('js/waypoints.min.js')}}"></script>
+               <script src="{{asset('js/wow.min.js')}}"></script>
+               <link rel="stylesheet"
+                              href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+               <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+               @stack('scripts')
 
 
 </body>
