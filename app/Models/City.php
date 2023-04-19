@@ -9,10 +9,13 @@ class City extends Model
 {
     use HasFactory;
     protected $table = 'city';
-    protected $fillable = ['city_name', 'country_id','postal_code'];
-    public function country()
+    protected $fillable = ['city_name', 'country_id', 'postal_code'];
+    public function hotels()
     {
-        return $this->belongsTo(Country::class);
+        return $this->hasMany(Hotel::class);
     }
-
+    public function rooms()
+    {
+        return $this->hasManyThrough(Hotel::class, Room::class);
+    }
 }

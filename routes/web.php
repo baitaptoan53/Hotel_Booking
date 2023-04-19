@@ -24,3 +24,4 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('autocomplete', 'autocomplete')->name('autocomplete');
 
 });
+Route::get('search', [HomeController::class, 'search'])->name('search');
