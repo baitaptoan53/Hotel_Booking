@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,16 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class, 'index'])->name('home.index');
 
 Route::get('/booking', function () {
     return view('booking.index');
 });
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home.index');
+    Route::get('autocomplete', 'autocomplete')->name('autocomplete');
 
-Route::get('/contact', function () {
-    return view('contact.index');
 });
-
-Route::get('/room', function () {
-    return view('room.index');
-});
+Route::get('search', [HomeController::class, 'search'])->name('search');

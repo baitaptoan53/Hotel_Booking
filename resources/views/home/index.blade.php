@@ -44,46 +44,37 @@
 <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="bg-white shadow" style="padding: 35px;">
-            <div class="row g-2">
-                <div class="col-md-10">
-                    <div class="row g-2">
-                        <div class="col-md-3">
-                            <div class="date" id="date1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" placeholder="Check in"
-                                    data-target="#date1" data-toggle="datetimepicker" />
+            <form method="get" action="{{ route('search') }}">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <div class="date" id="date1" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" placeholder="Check in"
+                                        data-target="#date1" data-toggle="datetimepicker" name="check_in" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="date" id="date2" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" placeholder="Check out"
-                                    data-target="#date2" data-toggle="datetimepicker" />
+                            <div class="col-md-4">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" placeholder="Check out"
+                                        data-target="#date2" data-toggle="datetimepicker" name="check_out" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-select">
-                                <option selected>Adult</option>
-                                <option value="1">Adult 1</option>
-                                <option value="2">Adult 2</option>
-                                <option value="3">Adult 3</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-select">
-                                <option selected>Child</option>
-                                <option value="1">Child 1</option>
-                                <option value="2">Child 2</option>
-                                <option value="3">Child 3</option>
-                            </select>
+                            <div class="col-md-4">
+                                <select class="form-select" id="search" name="city_name"></select>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-primary w-100">Submit</button>
-                </div>
-            </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary w-100">Search</button>
+                    </div>
+            </form>
         </div>
     </div>
 </div>
+</div>
+
 <!-- Booking End -->
 
 
@@ -101,7 +92,7 @@
                         <div class="border rounded p-1">
                             <div class="border rounded text-center p-4">
                                 <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
-                                <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                <h2 class="mb-1" data-toggle="counter-up">{{$count_room}}</h2>
                                 <p class="mb-0">Rooms</p>
                             </div>
                         </div>
@@ -149,6 +140,45 @@
 </div>
 <!-- About End -->
 
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-12">
+                <h1 class="mb-4">Explore <span class="text-primary text-uppercase">Vietnam</span></h1>
+                <p class="mb-4">These popular destinations have a lot to offer</p>
+                <!-- TESTIMONIALS -->
+                <section class="testimonials">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div id="customers-testimonials" class="owl-carousel">
+
+                                    <!--TESTIMONIAL 1 -->
+                                    @foreach($cities as $city)
+                                    <div class="item">
+                                        <div class="shadow-effect">
+                                            <img class="img-responsive"
+                                                src="https://images.unsplash.com/photo-1604323990536-e5452c0507c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                                                alt="">
+                                            <div class="item-details">
+                                                <h5>{{$city->city_name}} </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- END OF TESTIMONIALS -->
+                <a class="btn btn-primary py-3 px-5 mt-2" href="">Explore More</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Room Start -->
 <div class="container-xxl py-5">
@@ -165,7 +195,8 @@
                         <img class="img-fluid" src="{{$room->photo == ' '  ? $room->photo[0]->photo : 'img/room-1.jpg'
                         }}" alt="">
                         <small
-                            class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">{{number_format($room->reserved->price)}} $/Day</small>
+                            class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">{{number_format($room->reserved->price)}}
+                            $/Day</small>
                         </small>
                     </div>
                     <div class="p-4 mt-2">
@@ -186,8 +217,9 @@
                             <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
                         </div>
                         <p class="text-body mb-3">{{
-                            // nếu dài quá thì để 3 dấu chấm 
-                            strlen($room->description) > 150 ? substr($room->description, 0, 100) . '...' : $room->description
+                            // nếu dài quá thì để 3 dấu chấm
+                            strlen($room->description) > 150 ? substr($room->description, 0, 100) . '...' :
+                            $room->description
                             }}</p>
                         <div class="d-flex justify-content-between">
                             <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
@@ -483,4 +515,57 @@
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
 @endsection
+@push('scripts')
+<script type="text/javascript">
+    var path = "{{ route('autocomplete') }}";
+  
+    $('#search').select2({
+        placeholder: 'Select an city',
+        tags: true,
+        ajax: {
+          url: path,
+          dataType: 'json',
+          delay: 250,
+          processResults: function (data) {
+            return {
+              results:  $.map(data, function (item) {
+                    return {
+                        text: item.city_name,
+                        id: item.id
+                    }
+                })
+            };
+          },
+          cache: true
+        }
+      });
+      jQuery(document).ready(function($) {
+"use strict";
+$('#customers-testimonials').owlCarousel( {
+		loop: true,
+		center: true,
+		items: 3,
+		margin: 30,
+		autoplay: true,
+		dots:true,
+    nav:true,
+		autoplayTimeout: 8500,
+		smartSpeed: 450,
+  	navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+		responsive: {
+			0: {
+				items: 1
+			},
+			768: {
+				items: 2
+			},
+			1170: {
+				items: 3
+			}
+		}
+	});
+});
+</script>
+@endpush

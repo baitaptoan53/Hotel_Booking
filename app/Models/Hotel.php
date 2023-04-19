@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Hotel extends Model
 {
     use HasFactory;
+    protected $table = 'hotel';
+    // public function rooms()
+    // {
+    //     return $this->hasMany(Room::class);
+    // }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }
