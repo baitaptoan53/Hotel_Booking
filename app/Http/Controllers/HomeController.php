@@ -21,7 +21,8 @@ class HomeController extends Controller
         $rooms = Room::with('reserved')->take(3)->get();
         // đếm tổng số phòng 
         $count_room = Room::count();
-        return view('home.index', compact('rooms', 'count_room'));
+        $cities = City::all();
+        return view('home.index', compact('rooms', 'count_room','cities'));
     }
     public function show($id)
     {
@@ -45,11 +46,6 @@ class HomeController extends Controller
     }
     public function search(Request $request)
     {
-
-        // $city = City::where('city_name', 'Cần Thơ')->first();
-        // // 1 thành phố có nhiều khách sạn 
-        // $hotels = $city->hotels()->get();
-        // $rooms = $city->rooms_city()->get();
         $city_id = $request->get('city_name');
         $rooms = Room::with('hotel.city', 'reserved')->whereHas('hotel.city', function ($query) use ($city_id) {
             $query->where('id', $city_id);

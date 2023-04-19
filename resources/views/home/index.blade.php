@@ -140,6 +140,45 @@
 </div>
 <!-- About End -->
 
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-12">
+                <h1 class="mb-4">Explore <span class="text-primary text-uppercase">Vietnam</span></h1>
+                <p class="mb-4">These popular destinations have a lot to offer</p>
+                <!-- TESTIMONIALS -->
+                <section class="testimonials">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div id="customers-testimonials" class="owl-carousel">
+
+                                    <!--TESTIMONIAL 1 -->
+                                    @foreach($cities as $city)
+                                    <div class="item">
+                                        <div class="shadow-effect">
+                                            <img class="img-responsive"
+                                                src="https://images.unsplash.com/photo-1604323990536-e5452c0507c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                                                alt="">
+                                            <div class="item-details">
+                                                <h5>{{$city->city_name}} </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- END OF TESTIMONIALS -->
+                <a class="btn btn-primary py-3 px-5 mt-2" href="">Explore More</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Room Start -->
 <div class="container-xxl py-5">
@@ -502,6 +541,31 @@
           cache: true
         }
       });
-  
+      jQuery(document).ready(function($) {
+"use strict";
+$('#customers-testimonials').owlCarousel( {
+		loop: true,
+		center: true,
+		items: 3,
+		margin: 30,
+		autoplay: true,
+		dots:true,
+    nav:true,
+		autoplayTimeout: 8500,
+		smartSpeed: 450,
+  	navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+		responsive: {
+			0: {
+				items: 1
+			},
+			768: {
+				items: 2
+			},
+			1170: {
+				items: 3
+			}
+		}
+	});
+});
 </script>
 @endpush
