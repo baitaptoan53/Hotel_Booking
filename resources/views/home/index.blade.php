@@ -228,6 +228,7 @@
                     </div>
                 </div>
             </div>
+            {{ $rooms->links() }}
             @endforeach
         </div>
     </div>
