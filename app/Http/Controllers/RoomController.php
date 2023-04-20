@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Company;
 use App\Models\Room;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -11,7 +12,7 @@ class RoomController extends Controller
 {
     public function index()
     {
-        $rooms = Room::latest()->with('reserved')->paginate(9);
+        $rooms = Room::with('reserved','hotel.company')->paginate(9);
         // phân trang paginate 
         return view('room.index',compact('rooms'));
     }

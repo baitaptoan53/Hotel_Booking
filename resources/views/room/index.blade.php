@@ -96,6 +96,9 @@
                             strlen($room->description) > 150 ? substr($room->description, 0, 100) . '...' :
                             $room->description
                             }}</p>
+                        <p class="text-body mb-3">
+                            {{$room->hotel->company->company_address}}
+                        </p>
                         <div class="d-flex justify-content-between">
                             <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
                             <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
