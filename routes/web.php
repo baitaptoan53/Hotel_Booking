@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SearchController;
+use App\Models\RoomReserved;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +27,4 @@ Route::controller(HomeController::class)->group(function () {
 
 });
 Route::get('search', [HomeController::class, 'search'])->name('search');
+Route::get('/room', [RoomController::class, 'index']);

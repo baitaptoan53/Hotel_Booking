@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
                 'room_id' => $faker->unique()->numberBetween(1, 100),
                 'price' => $faker->numberBetween(1000000, 10000000),
 
-        $faker = Faker::create('vi_VN');
+        // $faker = Faker::create('vi_VN');
         // for ($i = 0; $i < 100; $i++) {
         //     DB::table('plant')->insert([
         //         'plant_name' => $faker->unique()->name,
@@ -68,5 +68,6 @@ class DatabaseSeeder extends Seeder
 
             ]);
         }
+    }
     }
 }
