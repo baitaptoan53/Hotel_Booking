@@ -25,7 +25,6 @@ class RoomController extends Controller
                 ->where('city_name', 'LIKE', '%' . $request->get('q') . '%')
                 ->get();
         }
-
         return response()->json($data);
     }
 }
