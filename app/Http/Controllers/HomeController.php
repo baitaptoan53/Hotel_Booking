@@ -9,6 +9,7 @@ use App\Models\Hotel;
 use App\Models\Room;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Termwind\Components\Dd;
 
@@ -16,8 +17,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-
         $rooms = Room::with('reserved')->take(3)->get();
         // đếm tổng số phòng 
         $count_room = Room::count();
