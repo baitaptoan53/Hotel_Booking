@@ -21,11 +21,11 @@
                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
                               rel="stylesheet">
 
-               <link rel="stylesheet" href="{{'css/animate.min.css'}}">
-               <link rel="stylesheet" href="{{'css/owl.carousel.min.css'}}">
-               <link rel="stylesheet" href="{{'css/tempusdominus-bootstrap-4.min.css'}}">
-               <link rel="stylesheet" href="{{'css/bootstrap.min.css'}}">
-               <link rel="stylesheet" href="{{'css/style.css'}}">
+               <link rel="stylesheet" href="{{asset('css/animate.min.css')}}">
+               <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+               <link rel="stylesheet" href="{{asset('css/tempusdominus-bootstrap-4.min.css')}}">
+               <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+               <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 
 <body>

@@ -27,4 +27,16 @@ class RoomController extends Controller
         }
         return response()->json($data);
     }
+    public function show($id)
+    {
+        
+        $room = Room::with('hotel.company','reserved')->find($id);
+        // dd($room);
+        return view('room.show',compact('room'));
+    }
+    public function booking($id)
+    {
+        $room = Room::with('hotel.company')->find($id);
+        return view('booking.index',compact('room'));
+    }
 }
