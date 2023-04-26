@@ -23,14 +23,6 @@ class HomeController extends Controller
         $cities = City::all();
         return view('home.index', compact('rooms', 'count_room','cities'));
     }
-    public function show($id)
-    {
-        $room = Room::with('reserved')->find($id);
-        return view('home.show', compact('room'));
-
-
-        return view('home.index');
-    }
     public function autocomplete(Request $request): JsonResponse
     {
         $data = [];

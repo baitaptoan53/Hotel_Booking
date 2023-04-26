@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SearchController;
+use App\Models\Room;
 use App\Models\RoomReserved;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::controller(HomeController::class)->group(function () {
 });
 Route::get('search', [HomeController::class, 'search'])->name('search');
 Route::get('/room', [RoomController::class, 'index']);
+Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
 
 Auth::routes();
 Route::get('/register', function () {
@@ -37,3 +39,9 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
+Route::get('/test', function () {
+        $room = Room::with('hotel.company')->find(1);
+    return view('room.show', compact('room'));
+});
+Route::get('/booking/{id}', [RoomController::class, 'booking'])->name('room.booking');
+Route::post('/booking/{id}', [RoomController::class, 'booking_store'])->name('room.booking.store');

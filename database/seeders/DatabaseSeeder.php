@@ -21,12 +21,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $faker = Faker::create('vi_VN');
+        // $faker = Faker::create('vi_VN');
 
-        for ($i = 0; $i < 100; $i++) {
-            DB::table('room_reserved')->insert([
-                'room_id' => $faker->unique()->numberBetween(1, 100),
-                'price' => $faker->numberBetween(1000000, 10000000),
+        // for ($i = 0; $i < 100; $i++) {
+        //     DB::table('room_reserved')->insert([
+        //         'room_id' => $faker->unique()->numberBetween(1, 100),
+        //         'price' => $faker->numberBetween(1000000, 10000000),
 
         // $faker = Faker::create('vi_VN');
         // for ($i = 0; $i < 100; $i++) {
@@ -51,23 +51,23 @@ class DatabaseSeeder extends Seeder
         //         'is_active' => $faker->boolean,
         //         'created_at' => now(),
         //         'updated_at' => now(),
-                
+
         //     ]);
         // }
-        for($i = 0; $i < 100; $i++){
-            DB::table('hotel')->insert([
-                'hotel_name' => $faker->unique()->company,
-                'description' => $faker->text,
-                'company_id' => $faker->numberBetween(1, 100),
-                'city_id' => $faker->numberBetween(1, 10),
-                'category_id' => $faker->numberBetween(1, 2),
-                'is_active' => $faker->boolean,
-                'created_at' => now(),
-                'updated_at' => now(),
-                
+        // for($i = 0; $i < 100; $i++){
+        //     DB::table('hotel')->insert([
+        //         'hotel_name' => $faker->unique()->company,
+        //         'description' => $faker->text,
+        //         'company_id' => $faker->numberBetween(1, 100),
+        //         'city_id' => $faker->numberBetween(1, 10),
+        //         'category_id' => $faker->numberBetween(1, 2),
+        //         'is_active' => $faker->boolean,
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
 
-            ]);
-        }
+
+        //     ]);
     }
-    }
+    // }
+    // }
 }
