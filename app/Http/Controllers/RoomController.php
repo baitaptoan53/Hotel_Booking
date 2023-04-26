@@ -32,7 +32,6 @@ class RoomController extends Controller
     }
     public function show($id)
     {
-
         $room = Room::with('hotel.company', 'reserved')->find($id);
         // dd($room);
         return view('room.show', compact('room'));

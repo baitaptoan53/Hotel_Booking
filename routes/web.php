@@ -31,6 +31,7 @@ Route::controller(HomeController::class)->group(function () {
 Route::get('search', [HomeController::class, 'search'])->name('search');
 Route::get('/room', [RoomController::class, 'index'])->name('room.index');
 Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
+Route::get('/city/{id}', [HomeController::class, 'city_room'])->name('city.room');
 
 Auth::routes();
 Route::get('/register', function () {
@@ -39,10 +40,6 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
-Route::get('/test', function () {
-        $room = Room::with('hotel.company')->find(1);
-    return view('room.show', compact('room'));
-});
 Route::get('/booking/{id}', [RoomController::class, 'booking'])->name('room.booking');
 Route::post('/booking/{id}', [RoomController::class, 'booking_store'])->name('room.booking.store');
 Route::get('/contact', function () {

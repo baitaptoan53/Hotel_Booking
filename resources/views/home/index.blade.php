@@ -10,7 +10,7 @@
                     <div class="p-3" style="max-width: 700px;">
                         <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Luxury Living</h6>
                         <h1 class="display-3 text-white mb-4 animated slideInDown">Discover A Brand Luxurious Hotel</h1>
-                        <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Rooms</a>
+                        <a href="{{route('room.index')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Rooms</a>
                         <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Book A Room</a>
                     </div>
                 </div>
@@ -156,16 +156,19 @@
 
                                     <!--TESTIMONIAL 1 -->
                                     @foreach($cities as $city)
-                                    <div class="item">
-                                        <div class="shadow-effect">
-                                            <img class="img-responsive"
-                                                src="https://images.unsplash.com/photo-1604323990536-e5452c0507c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                                                alt="">
-                                            <div class="item-details">
-                                                <h5>{{$city->city_name}} </h5>
+                                    <a href="{{route('city.room',$city->id)}}">
+                                        <div class="item">
+                                            <div class="shadow-effect">
+                                                <img class="img-responsive"
+                                                    src="https://images.unsplash.com/photo-1604323990536-e5452c0507c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                                                    alt="">
+                                                <div class="item-details">
+                                                    <h5>{{$city->city_name}} </h5>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
+
                                     @endforeach
 
                                 </div>
