@@ -29,7 +29,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('autocomplete', 'autocomplete')->name('autocomplete');
 });
 Route::get('search', [HomeController::class, 'search'])->name('search');
-Route::get('/room', [RoomController::class, 'index']);
+Route::get('/room', [RoomController::class, 'index'])->name('room.index');
 Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
 
 Auth::routes();
@@ -45,3 +45,6 @@ Route::get('/test', function () {
 });
 Route::get('/booking/{id}', [RoomController::class, 'booking'])->name('room.booking');
 Route::post('/booking/{id}', [RoomController::class, 'booking_store'])->name('room.booking.store');
+Route::get('/contact', function () {
+    return view('contact.index');
+})->name('contact.index');

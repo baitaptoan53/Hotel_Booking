@@ -40,8 +40,11 @@ class HomeController extends Controller
         $city_id = $request->get('city_name');
         $rooms = Room::with('hotel.city', 'reserved')->whereHas('hotel.city', function ($query) use ($city_id) {
             $query->where('id', $city_id);
-        })->get();
-        $count = $rooms->count();
+        })->paginate(9);
+        // dem so phong 
+        $count = Room::whereHas('hotel.city', function ($query) use ($city_id) {
+            $query->where('id', $city_id);
+        })->count();
         return view('search', compact('rooms', 'count'));
     }
 }
