@@ -100,8 +100,10 @@
                             {{$room->hotel->company->company_address}}
                         </p>
                         <div class="d-flex justify-content-between">
-                            <a class="btn btn-sm btn-primary rounded py-2 px-4" href="{{route('room.show', $room->id)}}">View Detail</a>
-                            <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                            <a class="btn btn-sm btn-primary rounded py-2 px-4"
+                                href="{{route('room.show', $room->id)}}">View Detail</a>
+                            <a class="btn btn-sm btn-dark rounded py-2 px-4"
+                                href="{{route('room.booking',$room->id)}}">Book Now</a>
                         </div>
                     </div>
                 </div>

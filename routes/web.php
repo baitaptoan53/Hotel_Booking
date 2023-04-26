@@ -44,3 +44,4 @@ Route::get('/test', function () {
     return view('room.show', compact('room'));
 });
 Route::get('/booking/{id}', [RoomController::class, 'booking'])->name('room.booking');
+Route::post('/booking/{id}', [RoomController::class, 'booking_store'])->name('room.booking.store');

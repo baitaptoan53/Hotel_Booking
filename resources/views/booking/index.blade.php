@@ -46,39 +46,55 @@
             </div>
             <div class="col-lg-6">
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <form>
+                    <form class="needs-validation" action="{{route('room.booking.store',$room->id)}}" method="POST">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name"  value="{{ Auth::user()->name }}">
-                                    <label for="name" >Your Name</label>
+                                    <input type="text" class="form-control" id="name" value="{{ Auth::user()->name }}">
+                                    <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" value="{{ Auth::user()->email }}">
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        value="{{ Auth::user()->email }}">
                                     <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="phone" name="phone"
+                                        value="{{ Auth::user()->phone }}">
+                                    <label for="phone">Your Phone</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>City</label>
+                                <div class="form-floating ">
+                                    <select class="form-control" name="city" id='select-city'></select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>District</label>
+                                <div class="form-floating ">
+                                    <select class="form-control" name="district" id='select-district'></select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating date" id="date3" data-target-input="nearest">
                                     <input type="text" class="form-control datetimepicker-input" id="checkin"
-                                        placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" name="start_date" />
+                                        placeholder="Check In" data-target="#date3" data-toggle="datetimepicker"
+                                        name="start_date" />
                                     <label for="checkin">Check In</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating date" id="date4" data-target-input="nearest">
                                     <input type="text" class="form-control datetimepicker-input" id="checkout"
-                                        placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" name="end_date" />
+                                        placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker"
+                                        name="end_date" />
                                     <label for="checkout">Check Out</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Special Request" id="message"
-                                        style="height: 100px"></textarea>
-                                    <label for="message">Special Request</label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -136,5 +152,35 @@
           cache: true
         }
       });
+      async function loadDistrict() {
+            $('#select-district').empty();
+            const path = $("#select-city option:selected").data('path');
+            const response = await fetch('{{ asset('locations/') }}' + path);
+            const districts = await response.json();
+            $.each(districts.district, function(index, each) {
+                if (each.pre === 'Quận') {
+                    $("#select-district").append(`
+                    <option>
+                        ${each.name}
+                    </option>`);
+                }
+            })
+        }
+        $(document).ready(async function() {
+            $("#select-city").select2();
+            const response = await fetch('{{ asset('locations/index.json') }}');
+            const cities = await response.json();
+            $.each(cities, function(index, each) {
+                $("#select-city").append(`
+                <option data-path='${each.file_path}'>
+                    ${index}
+                </option>`)
+            })
+            $("#select-city").change(function() {
+                loadDistrict();
+            });
+            $('#select-district').select2();
+            loadDistrict();
+        });
 </script>
 @endpush
