@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::table('reservation', function (Blueprint $table) {
             // sửa cột start_date và end_date thành kiểu datetime
-            $table->timestamp('check_in')->change();
-            $table->timestamp('check_out')->change();
         });
     }
 

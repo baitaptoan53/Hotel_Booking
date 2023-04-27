@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Room')
 @section('content')
 <!-- Page Header Start -->
 <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
@@ -7,7 +8,7 @@
             <h1 class="display-3 text-white mb-3 animated slideInDown">Rooms</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('home.index')}}">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
                     <li class="breadcrumb-item text-white active" aria-current="page">Rooms</li>
                 </ol>
@@ -79,11 +80,12 @@
                         <div class="d-flex justify-content-between mb-3">
                             <h5 class="mb-0">{{$room->room_name}}</h5>
                             <div class="ps-2">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
+                                @for ($i = 1; $i <= 5; $i++) @if ($i <=$room->rate)
+                                    <i class="fas fa-star text-warning"></i>
+                                    @else
+                                    <i class="far fa-star"></i>
+                                    @endif
+                                    @endfor
                             </div>
                         </div>
                         <div class="d-flex mb-3">
