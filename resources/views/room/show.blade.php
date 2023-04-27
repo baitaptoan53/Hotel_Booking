@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title', 'Room '.$room->room_name.' info')
 @section('content')
 <div class="container-xxl py-5 mb-5">
     <div class="row">

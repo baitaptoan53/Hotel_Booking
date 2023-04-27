@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title', 'Search')
 @section('content')
 <div class="container-xxl py-5">
     <div class="container">

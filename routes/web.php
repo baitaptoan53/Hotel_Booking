@@ -45,3 +45,9 @@ Route::post('/booking/{id}', [RoomController::class, 'booking_store'])->name('ro
 Route::get('/contact', function () {
     return view('contact.index');
 })->name('contact.index');
+Route::get('/about', function () {
+    return view('about.index');
+})->name('about.index');
+Route::get('/service' , function () {
+    return view('service.index');
+})->name('service.index');
