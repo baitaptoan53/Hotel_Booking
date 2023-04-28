@@ -21,7 +21,7 @@
 
 
 <!-- Booking Start -->
-@incldue('layouts.search')
+@include('layouts.search')
 <!-- Booking End -->
 
 
@@ -116,3 +116,29 @@
 </div>
 <!-- Newsletter Start -->
 @endsection
+@push('scripts')
+<script type="text/javascript">
+    var path = "{{ route('autocomplete') }}";
+  
+    $('#search').select2({
+        placeholder: 'Select an city',
+        tags: true,
+        ajax: {
+          url: path,
+          dataType: 'json',
+          delay: 250,
+          processResults: function (data) {
+            return {
+              results:  $.map(data, function (item) {
+                    return {
+                        text: item.city_name,
+                        id: item.id
+                    }
+                })
+            };
+          },
+          cache: true
+        }
+      });
+</script>
+@endpush

@@ -51,3 +51,6 @@ Route::get('/about', function () {
 Route::get('/service' , function () {
     return view('service.index');
 })->name('service.index');
+Route::get('/admin/users',function(){
+    return view('admin.users.index');
+})->name('admin.users.index');
