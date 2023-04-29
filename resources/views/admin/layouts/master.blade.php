@@ -69,6 +69,6 @@
     <script src="{{ asset('js/app.min.js') }}"></script>
     <script src="{{ asset('js/vendor.min.js') }}"></script>
     <script src="{{ asset('js/helper.js') }}"></script>
-    @stack('js')
+    @stack('scripts')
 </body>
 </html>
