@@ -43,10 +43,17 @@
                                     </a>
                                 </li>
                                 <li class="side-nav-item">
-                                    <a href="" class="side-nav-link">
+                                    <a href="{{route('admin.booking.index')}}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right">4</span>
-                                        <span> Posts </span>
+                                        <span> Booking </span>
+                                    </a>
+                                </li>
+                                <li class="side-nav-item">
+                                    <a href="{{route('admin.room.index')}}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right">4</span>
+                                        <span> Room </span>
                                     </a>
                                 </li>
 

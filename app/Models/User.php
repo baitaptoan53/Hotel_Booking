@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -42,6 +42,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function reservation(){
-        return $this->hasMany(Reservation::class);
+        return $this->belongsTo(Reservation::class);
     }
 }

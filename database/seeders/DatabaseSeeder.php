@@ -21,7 +21,20 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        // $faker = Faker::create('vi_VN');
+        $faker = Faker::create('vi_VN');
+        for ($i = 0; $i < 100; $i++) {
+            DB::table('users')->insert([
+                'name' => $faker->name,
+                'email' => $faker->unique()->email,
+                'password' => bcrypt('123456'),
+                'phone' => $faker->unique()->phoneNumber,
+                // 'role'=> randum element admin or user,
+                'role' =>    $faker->randomElement(['admin', 'user']),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'address' => $faker->address,
+            ]);
+        }
 
         // for ($i = 0; $i < 100; $i++) {
         //     DB::table('room_reserved')->insert([

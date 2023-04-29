@@ -5,26 +5,21 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class User extends JsonResource
+class Pagination extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
      * @return array<string, mixed>
      */
-
     public function toArray($request): array
     {
-
-
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'email' => $this->email,
-            'phone' => $this->phone,
-            'address' => $this->address,
-            'role' => $this->role,
-            'created_at' => $this->created_at,
+            'total' => $this->total(),
+            'count' => $this->count(),
+            'per_page' => $this->perPage(),
+            'current_page' => $this->currentPage(),
+            'total_pages' => $this->lastPage()
         ];
     }
 }
