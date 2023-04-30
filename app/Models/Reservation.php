@@ -9,8 +9,9 @@ class Reservation extends Model
 {
     use HasFactory;
     protected $table = 'reservation';
-    public function user(){
-        return $this->hasMany(User::class);
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
     public function room_reserved(){
         return $this->belongsTo(RoomReserved::class);

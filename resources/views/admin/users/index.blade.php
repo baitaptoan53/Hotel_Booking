@@ -157,7 +157,6 @@ $(document).on('click', '#delete_user', function() {
             "_token": token,
         },
         success: function(response) {
-            console.log(response);
             location.reload();
         },
         error: function(response) {
@@ -167,3 +166,23 @@ $(document).on('click', '#delete_user', function() {
 });
 </script>
 @endpush
+
+
+
+
+
+
+
+
+
+
+$.each(data.data, function(i, booking) {
+var row = "<tr>";
+    row += "<td>" + booking.id + "</td>";
+    row += "<td>" + booking.check_in + "</td>";
+    row += "<td>" + booking.check_out + "</td>";
+    row += "<td>" + booking.total_price + "</td>";
+    row += "</tr>";
+$("#booking-table tbody").append(row);
+});
+},
