@@ -14,8 +14,12 @@ class UsersController extends BaseController
 {
     public function index(Request $request)
     {
-        $users = User::paginate(5);
-        return $this->sendResponse(UserResource::collection($users), 'Users retrieved successfully.');
+        $users = User::paginate(10);
+        // truyền các thông tin pagination vào trong resource
+        $users->appends(request()->query());
+        // trả về dữ liệu với resource
+        return UserResource::collection($users);
+        // return $this->sendResponse( $users, 'Users retrieved successfully.');
 
     }
     public function destroy($id)
