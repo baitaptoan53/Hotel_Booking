@@ -33,8 +33,13 @@
                             <!--- Sidemenu -->
                             <ul class="metismenu side-nav mm-show">
 
-                                <li class="side-nav-title side-nav-item">Navigation</li>
-
+                                <li class="side-nav-item">
+                                    <a href="{{route('admin.welcome')}}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right">4</span>
+                                        <span> Dashboard </span>
+                                    </a>
+                                </li>
                                 <li class="side-nav-item">
                                     <a href="{{route('admin.users.index')}}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
@@ -59,11 +64,6 @@
 
 
                             </ul>
-
-                            <!-- Help Box -->
-
-                            <!-- end Help Box -->
-                            <!-- End Sidebar -->
 
                             <div class="clearfix"></div>
 

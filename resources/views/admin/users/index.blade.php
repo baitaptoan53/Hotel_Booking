@@ -6,10 +6,6 @@
             <div class="card-header">
                 <input type="file" name="csv" id="csv" class="d-none"
                     accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-                {{-- <nav class="float-right">
-                    <ul class="pagination pagination-rounded mb-0" id="pagination">
-                    </ul>
-                </nav> --}}
             </div>
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <div class="card-body">
@@ -21,7 +17,6 @@
     </div>
 </div>
 <div id="pagination"></div>
-
 @endsection
 @push('scripts')
 <script>
@@ -32,57 +27,7 @@
     });
 </script>
 <script>
-    //     $(document).ready(function() {
-//     $.ajax({
-//         url: '{{ route('api.users') }}',
-//         type: 'GET',
-//         dataType: 'json',
-//         data: {page: {{ request()->get('page') ?? 1 }}},
-//         success: function(response) {
-//             var users = response.data;
-//             var tableHtml = '<table>';
-//             tableHtml += '<tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Role</th><th>Created at</th><th>Delete</th></tr>';
-//             $.each(users, function( index,user) {
-//                let created_at = convertDateToDateTime(user.created_at);
-//                 tableHtml += '<tr>';
-//                 tableHtml += '<td>' + user.id + '</td>';
-//                 tableHtml += '<td>' + user.name + '</td>';
-//                 tableHtml += '<td>' + user.email + '</td>';
-//                 tableHtml += '<td>' + user.phone + '</td>';
-//                 tableHtml += '<td>' + user.address + '</td>';
-//                 tableHtml += '<td>' + user.role + '</td>';
-//                 tableHtml += '<td>' + created_at + '</td>';
-//                 tableHtml += '<td><button class="btn btn-danger" id="delete_user" data-id="' + user.id + '">Delete</button></td>';
-//                 tableHtml += '</tr>';
-//             });
-//             tableHtml += '</table>';
-//             $('#table-data').html(tableHtml);
-//         },
-//         error: function(response) {
-//             console.log(response);
-//         }
-//     });
-// });
-// $(document).on('click', '#delete_user', function() {
-//     var id = $(this).data('id');
-//     var token = $("meta[name='csrf-token']").attr("content");
-//     $.ajax({
-//         url: '{{ route('api.users') }}' + '/' + id,
-//         type: 'DELETE',
-//         data: {
-//             "id": id,
-//             "_token": token,
-//         },
-//         success: function(response) {
-//             console.log(response);
-//             location.reload();
-//         },
-//         error: function(response) {
-//             console.log(response);
-//         }
-//     });
-// });
-$(document).ready(function() {
+    $(document).ready(function() {
     var currentPage = 1;
 
     function getUsers(page) {
@@ -166,23 +111,3 @@ $(document).on('click', '#delete_user', function() {
 });
 </script>
 @endpush
-
-
-
-
-
-
-
-
-
-
-$.each(data.data, function(i, booking) {
-var row = "<tr>";
-    row += "<td>" + booking.id + "</td>";
-    row += "<td>" + booking.check_in + "</td>";
-    row += "<td>" + booking.check_out + "</td>";
-    row += "<td>" + booking.total_price + "</td>";
-    row += "</tr>";
-$("#booking-table tbody").append(row);
-});
-},

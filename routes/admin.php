@@ -1,14 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\RoomController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
-use App\Http\Controllers\PostController as ControllersPostController;
 
-Route::get('/', function () {
-               return view('admin.layouts.master');
-})->name('welcome');
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 Route::group(
                [
