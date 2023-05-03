@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\Company;
+use App\Models\Hotel;
 use App\Models\Reservation;
 use App\Models\Room;
+use App\Models\Roomtype;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -74,5 +76,27 @@ class RoomController extends Controller
         $reservation->discount_percent = $discount_percent;
         $reservation->save();
         return redirect()->route('home.index');
+    }
+    public function select2_hotel(Request $request): JsonResponse
+    {
+        $data = [];
+
+        if ($request->filled('q')) {
+            $data = Hotel::select("hotel_name", "id")
+                ->where('hotel_name', 'LIKE', '%' . $request->get('q') . '%')
+                ->get();
+        }
+        return response()->json($data);
+    }
+    public function select2_room_type(Request $request): JsonResponse
+    {
+        $data = [];
+
+        if ($request->filled('q')) {
+            $data = Roomtype::select("room_type_name", "id")
+                ->where('room_type_name', 'LIKE', '%' . $request->get('q') . '%')
+                ->get();
+        }
+        return response()->json($data);
     }
 }

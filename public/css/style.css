@@ -1,4 +1,5 @@
 /********** Template CSS **********/
+
 :root {
     --primary: #fea116;
     --light: #f1f8ff;
@@ -21,7 +22,9 @@
     z-index: 99;
 }
 
+
 /*** Spinner ***/
+
 #spinner {
     opacity: 0;
     visibility: hidden;
@@ -35,7 +38,9 @@
     opacity: 1;
 }
 
+
 /*** Button ***/
+
 .btn {
     font-weight: 500;
     text-transform: uppercase;
@@ -73,7 +78,9 @@
     border-radius: 2px;
 }
 
+
 /*** Navbar ***/
+
 .navbar-dark .navbar-nav .nav-link {
     margin-right: 30px;
     padding: 25px 0;
@@ -95,7 +102,9 @@
     }
 }
 
+
 /*** Header ***/
+
 .carousel-caption {
     top: 0;
     left: 0;
@@ -121,7 +130,6 @@
         position: relative;
         min-height: 450px;
     }
-
     #header-carousel .carousel-item img {
         position: absolute;
         width: 100%;
@@ -140,7 +148,7 @@
     background: rgba(15, 23, 43, 0.7);
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item+.breadcrumb-item::before {
     color: var(--light);
 }
 
@@ -150,7 +158,9 @@
     z-index: 1;
 }
 
+
 /*** Section Title ***/
+
 .section-title {
     position: relative;
     display: inline-block;
@@ -183,7 +193,9 @@
     display: none;
 }
 
+
 /*** Service ***/
+
 .service-item {
     height: 320px;
     padding: 30px;
@@ -219,13 +231,14 @@
     color: #ffffff !important;
 }
 
+
 /*** Youtube Video ***/
+
 .video {
     position: relative;
     height: 100%;
     min-height: 500px;
-    background: linear-gradient(rgba(15, 23, 43, 0.1), rgba(15, 23, 43, 0.1)),
-        url(../img/video.jpg);
+    background: linear-gradient(rgba(15, 23, 43, 0.1), rgba(15, 23, 43, 0.1)), url(../img/video.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -301,7 +314,6 @@
         transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
         opacity: 1;
     }
-
     100% {
         transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
         opacity: 0;
@@ -337,10 +349,11 @@
     opacity: 1;
 }
 
+
 /*** Testimonial ***/
+
 .testimonial {
-    background: linear-gradient(rgba(15, 23, 43, 0.7), rgba(15, 23, 43, 0.7)),
-        url(../img/carousel-2.jpg);
+    background: linear-gradient(rgba(15, 23, 43, 0.7), rgba(15, 23, 43, 0.7)), url(../img/carousel-2.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -387,7 +400,9 @@
     background: #ffffff;
 }
 
+
 /*** Team ***/
+
 .team-item,
 .team-item .bg-primary,
 .team-item .bg-primary i {
@@ -406,7 +421,9 @@
     color: var(--secondary) !important;
 }
 
+
 /*** Footer ***/
+
 .newsletter {
     position: relative;
     z-index: 1;
@@ -481,42 +498,52 @@
     padding-right: 0;
     border-right: none;
 }
+
 .testimonials {
     position: relative;
     padding-top: 40px;
 }
+
 #customers-testimonials .item-details {
     color: #fff;
     padding: 20px 10px;
     text-align: left;
 }
+
 #customers-testimonials .item-details .h5 {
     margin: 0 0 15px;
     font-size: 18px;
     line-height: 18px;
 }
+
 #customers-testimonials .item-details .h5 span {
     color: red;
     float: right;
     padding-right: 20px;
 }
+
 #customers-testimonials .item-details p {
     font-size: 14px;
 }
+
 #customers-testimonials .item {
     text-align: center;
     margin-bottom: 80px;
 }
+
 .owl-carousel .owl-nav [class*='owl-'] {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
+
 .owl-carousel .owl-nav [class*='owl-'].disabled:hover {
     background-color: #d6d6d6;
 }
+
 .owl-carousel {
     position: relative;
 }
+
 .owl-carousel .owl-next,
 .owl-carousel .owl-prev {
     width: 50px;
@@ -530,9 +557,11 @@
     border: 1px solid #ddd;
     text-align: center;
 }
+
 .owl-carousel .owl-prev {
     left: -70px;
 }
+
 .owl-carousel .owl-next {
     right: -70px;
 }

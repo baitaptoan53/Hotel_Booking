@@ -4,8 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <input type="file" name="csv" id="csv" class="d-none"
-                    accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                
             </div>
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <div class="card-body">

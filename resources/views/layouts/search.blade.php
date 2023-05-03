@@ -21,7 +21,6 @@
                             <div class="col-md-4">
                                 <select class="form-select" id="search" name="city_name"></select>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-md-2">

@@ -1,13 +1,8 @@
 <div class="left-side-menu mm-show">
 
     <!-- LOGO -->
-    <a href="index.html" class="logo text-center logo-light">
-        <span class="logo-lg">
-            <img src="assets/images/logo.png" alt="" height="16">
-        </span>
-        <span class="logo-sm">
-            <img src="assets/images/logo_sm.png" alt="" height="16">
-        </span>
+    <a href="{{route('admin.welcome')}}" class="logo text-center logo-light mt-2">
+        <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
     </a>
 
     <!-- LOGO -->
@@ -36,37 +31,29 @@
                                 <li class="side-nav-item">
                                     <a href="{{route('admin.welcome')}}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
-                                        <span class="badge badge-success float-right">4</span>
                                         <span> Dashboard </span>
                                     </a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a href="{{route('admin.users.index')}}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
-                                        <span class="badge badge-success float-right">4</span>
                                         <span> Users </span>
                                     </a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a href="{{route('admin.booking.index')}}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
-                                        <span class="badge badge-success float-right">4</span>
                                         <span> Booking </span>
                                     </a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a href="{{route('admin.room.index')}}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
-                                        <span class="badge badge-success float-right">4</span>
                                         <span> Room </span>
                                     </a>
                                 </li>
-
-
                             </ul>
-
                             <div class="clearfix"></div>
-
                         </div>
                     </div>
                 </div>

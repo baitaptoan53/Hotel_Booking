@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
     <meta content="Coderthemes" name="author">
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
     <!-- App css -->
-    <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css"
+        integrity="sha512-LX0YV/MWBEn2dwXCYgQHrpa9HJkwB+S+bnBpifSOTO1No27TqNMKYoAn6ff2FBh03THAzAiiCwQ+aPX+/Qt/Ow=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('css/app-creative.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/app-creative-dark.min.css') }}" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/css/bootstrap-pagination.min.css" />
-
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/css/bootstrap-pagination.min.css" />
 </head>
 
 <body class=""
@@ -73,4 +73,5 @@
     <script src="{{ asset('js/helper.js') }}"></script>
     @stack('scripts')
 </body>
+
 </html>

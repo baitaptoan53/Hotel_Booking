@@ -1,32 +1,30 @@
 @extends('admin.layouts.master')
 @section('content')
 <div class="row">
-               <div class="col-12">
-                              <div class="card">
-                                             <div class="card-header">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <a href="{{ route('admin.room.create') }}" class="btn btn-primary">
+                    Create
+                </a>
+                <nav class="float-right">
+                    <ul class="pagination pagination-rounded mb-0" id="pagination">
+                    </ul>
+                </nav>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped" id="table-data">
 
-
-                                                            <input type="file" name="csv" id="csv" class="d-none"
-                                                                           accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-                                                            <nav class="float-right">
-                                                                           <ul class="pagination pagination-rounded mb-0"
-                                                                                          id="pagination">
-                                                                           </ul>
-                                                            </nav>
-                                             </div>
-                                             <div class="card-body">
-                                                            <table class="table table-striped" id="table-data">
-
-                                                                           <tbody></tbody>
-                                                            </table>
-                                             </div>
-                              </div>
-               </div>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 @push('scripts')
 <script>
-               $(document).ready(function() {
+    $(document).ready(function() {
     $.ajax({
         url: '{{ route('api.room') }}',
         type: 'GET',

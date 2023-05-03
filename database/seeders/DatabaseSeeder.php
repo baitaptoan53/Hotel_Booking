@@ -22,17 +22,34 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $faker = Faker::create('vi_VN');
+        // for ($i = 0; $i < 100; $i++) {
+        //     DB::table('users')->insert([
+        //         'name' => $faker->name,
+        //         'email' => $faker->unique()->email,
+        //         'password' => bcrypt('123456'),
+        //         'phone' => $faker->unique()->phoneNumber,
+        //         // 'role'=> randum element admin or user,
+        //         'role' =>    $faker->randomElement(['admin', 'user']),
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //         'address' => $faker->address,
+        //     ]);
+        // }
+        $now = now();
+        //  lấy ngày check_in là trước ngày hiện tại 1 tháng
+        $check_in = now()->subMonth();
+        // lấy ngày check_out là sau ngày hiện tại 1 tháng
+        $check_out = now()->addMonth();
+        
         for ($i = 0; $i < 100; $i++) {
-            DB::table('users')->insert([
-                'name' => $faker->name,
-                'email' => $faker->unique()->email,
-                'password' => bcrypt('123456'),
-                'phone' => $faker->unique()->phoneNumber,
-                // 'role'=> randum element admin or user,
-                'role' =>    $faker->randomElement(['admin', 'user']),
-                'created_at' => now(),
-                'updated_at' => now(),
-                'address' => $faker->address,
+            DB::table('reservation')->insert([
+                // thời gian check_in trên 1 tháng vói thời gian hiện tại 
+                'check_in' => $faker->dateTimeBetween($now, $check_out),
+                'check_out' => $faker->dateTimeBetween($check_in, $now),
+                'total_price' => $faker->numberBetween(1000000, 10000000),
+                'discount_percent' => '0',
+                'room_reserved_id' => $faker->randomElement(DB::table('room_reserved')->pluck('id')),
+                'users_id' => $faker->randomElement(DB::table('users')->pluck('id')),
             ]);
         }
 

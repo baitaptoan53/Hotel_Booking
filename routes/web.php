@@ -25,7 +25,6 @@ Route::get('/booking', function () {
 });
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home.index');
-
     Route::get('autocomplete', 'autocomplete')->name('autocomplete');
 });
 Route::get('search', [HomeController::class, 'search'])->name('search');
@@ -48,9 +47,11 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('about.index');
 })->name('about.index');
-Route::get('/service' , function () {
+Route::get('/service', function () {
     return view('service.index');
 })->name('service.index');
-Route::get('/admin/users',function(){
+Route::get('/admin/users', function () {
     return view('admin.users.index');
 })->name('admin.users.index');
+Route::get('select2_hotel', [RoomController::class, 'select2_hotel'])->name('select2_hotel');
+Route::get('select2_room_type', [RoomController::class, 'select2_room_type'])->name('select2_room_type');
