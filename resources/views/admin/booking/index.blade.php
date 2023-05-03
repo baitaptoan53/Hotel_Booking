@@ -4,35 +4,16 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <input type="file" name="csv" id="csv" class="d-none"
-                    accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-                {{-- <nav class="float-right">
+                
+                <nav class="float-right">
                     <ul class="pagination pagination-rounded mb-0" id="pagination">
                     </ul>
-                </nav> --}}
+                </nav>
             </div>
-            <meta name="csrf-token" content="{{ csrf_token() }}">
             <div class="card-body">
                 <table class="table table-striped" id="table-data">
-
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Check in</th>
-                            <th>Check out</th>
-                            <th>Total price</th>
-                            <th>Users id</th>
-                            <th>Room name</th>
-                            <th>Room id</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
-
-
-
             </div>
         </div>
     </div>
@@ -54,7 +35,7 @@
 
     function getbookings(page) {
         $.ajax({
-            url:'{{ route('api.booking') }}',
+            url:'/api/booking?page=' + page,
             dataType: "json",
             type: 'GET',
             success: function(response) {
@@ -62,7 +43,8 @@
                 var total = response.data.meta.total;
                 var perPage = response.data.meta.per_page;
                 var currentPage = response.data.meta.current_page;
-                // Hiển thị danh sách bookings
+                var tableHtml = '<table>';
+                tableHtml+= '<tr><th>ID</th><th>Check in</th><th>Check out</th><th>Total price</th><th>Users id</th><th>Room name</th><th>Room id</th><th>Status</th></tr>';
                 $.each(bookings, function(index, booking) {
                     let check_in = convertDateToDateTime(booking.check_in);
                     let check_out = convertDateToDateTime(booking.check_out);
@@ -72,7 +54,7 @@
                     } else {
                         var status = '<span class="badge badge-danger">Booked</span>';
                     }
-                     var tableHtml = '<tr>';
+                    tableHtml += '<tr>';
                     tableHtml += '<td>' + booking.id + '</td>';
                     tableHtml += '<td>' + booking.check_in + '</td>';
                     tableHtml += '<td>' + booking.check_out + '</td>';
@@ -82,9 +64,9 @@
                     tableHtml += '<td>' + booking.room_id + '</td>';
                     tableHtml += '<td>' + status + '</td>';
                     tableHtml += '</tr>';
-                    $("#table-data").append(tableHtml);
                 });
-
+                tableHtml += '</table>';
+                $("#table-data").html(tableHtml);
                 var paginationHtml = '';
                 paginationHtml += '<ul class="pagination">';
                 if (currentPage > 1) {
@@ -102,20 +84,21 @@
                 }
                 paginationHtml += '</ul>';
                 $('#pagination').html(paginationHtml);
-// Lắng nghe sự kiện click trên các link đường dẫn
+
         $('#pagination').on('click', 'a.page-link', function(event) {
         event.preventDefault();
         var page = $(this).data('page');
         getbookings(page);
-                });
+});
             },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
+            error: function(response) {
+                console.log(response);
             }
         });
     }
+
     getbookings(currentPage);
-    });
+});
 </script>
 
 @endpush

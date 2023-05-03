@@ -27,7 +27,11 @@ class BookingController extends BaseController
                 'current_page' => $pagination['current_page'],
                 'from' => $pagination['from'],
                 'last_page' => $pagination['last_page'],
-                'links' => $pagination['links']
+                'links' => $pagination['links'],
+                'path' => $pagination['path'],
+                'per_page' => $pagination['per_page'],
+                'to' => $pagination['to'],
+                'total' => $pagination['total'],
             ]
         ];
         return $this->sendResponse($data, 'Bookings retrieved successfully.');

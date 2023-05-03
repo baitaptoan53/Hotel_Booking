@@ -14,25 +14,38 @@
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table-data">
-
                     <tbody></tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+<div id="pagination"></div>
+
 @endsection
 @push('scripts')
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+<script>
     $(document).ready(function() {
-    $.ajax({
-        url: '{{ route('api.room') }}',
+        var currentPage = 1;
+        function getRooms(page){
+            $.ajax({
+        url: '/api/room?page=' + page,
         type: 'GET',
         dataType: 'json',
         success: function(response) {
-            var rooms = response.data;
+            var rooms = response.data.data;
+            var total = response.data.meta.total;
+            var perPage = response.data.meta.per_page;
+            var currentPage = response.data.meta.current_page;
             var tableHtml = '<table>';
-            tableHtml += '<tr><th>ID</th><th>Room name</th><th>Description</th><th>Address</th><th>Price</th><th>Rating</th><th>Photo</th><th>Created at</th><th>Update at</th></tr>';
+                tableHtml+= '<tr><th>ID</th><th>Room name</th><th>Description</th><th>Address</th><th>Price</th><th>Rating</th><th>Photo</th><th>Created at</th><th>Update at</th></tr>';
             $.each(rooms, function( index,room) {
                let created_at = convertDateToDateTime(room.created_at);
                let updated_at = convertDateToDateTime(room.updated_at);
@@ -52,14 +65,38 @@
                 tableHtml += '</tr>';
             });
             tableHtml += '</table>';
-            $('#table-data').html(tableHtml);
-        },
-        error: function(response) {
-            console.log(response);
-        }
-    });
+            $("#table-data").html(tableHtml);
+            var paginationHtml = '';
+                paginationHtml += '<ul class="pagination">';
+                if (currentPage > 1) {
+                    paginationHtml += '<li class="page-item"><a class="page-link" href="#" data-page="' + (currentPage - 1) + '">Previous</a></li>';
+                }
+                for (var i = 1; i <= Math.ceil(total / perPage); i++) {
+                    if (i == currentPage) {
+                        paginationHtml += '<li class="page-item active"><a class="page-link" href="#" data-page="' + i + '">' + i + '</a></li>';
+                    } else {
+                        paginationHtml += '<li class="page-item"><a class="page-link" href="#" data-page="' + i + '">' + i + '</a></li>';
+                    }
+                }
+                if (currentPage < Math.ceil(total / perPage)) {
+                    paginationHtml += '<li class="page-item"><a class="page-link" href="#" data-page="' + (currentPage + 1) + '">Next</a></li>';
+                }
+                paginationHtml += '</ul>';
+                $('#pagination').html(paginationHtml);
+
+        $('#pagination').on('click', 'a.page-link', function(event) {
+        event.preventDefault();
+        var page = $(this).data('page');
+        getRooms(page);
 });
+            },
+            error: function(response) {
+                console.log(response);
+            }
+        });
+    }
 
-
+    getRooms(currentPage);
+});
 </script>
 @endpush

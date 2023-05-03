@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -25,7 +26,10 @@
         }
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 <script>
+
     $(document).ready(function() {
     var currentPage = 1;
 
@@ -101,6 +105,7 @@ $(document).on('click', '#delete_user', function() {
             "_token": token,
         },
         success: function(response) {
+            toastr.success('Delete user success!', 'Success', {timeOut: 5000});
             location.reload();
         },
         error: function(response) {

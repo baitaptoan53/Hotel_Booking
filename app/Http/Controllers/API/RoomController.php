@@ -12,8 +12,28 @@ class RoomController extends BaseController
 {
     public function index()
     {
-        $data = Room::with('reserved', 'hotel.company')->get();
-        return $this->sendResponse(ResourcesRoom::collection($data), 'Posts fetched.');
+        $data = Room::with('reserved', 'hotel.company')->paginate(10);
+        $pagination = $data->toArray();
+        $data = [
+            'data' => ResourcesRoom::collection($data),
+            'links' => [
+                'first' => $pagination['first_page_url'],
+                'last' => $pagination['last_page_url'],
+                'prev' => $pagination['prev_page_url'],
+                'next' => $pagination['next_page_url'],
+            ],
+            'meta' => [
+                'current_page' => $pagination['current_page'],
+                'from' => $pagination['from'],
+                'last_page' => $pagination['last_page'],
+                'links' => $pagination['links'],
+                'path' => $pagination['path'],
+                'per_page' => $pagination['per_page'],
+                'to' => $pagination['to'],
+                'total' => $pagination['total'],
+            ]
+        ];
+        return $this->sendResponse($data, 'Posts fetched.');
     }
     public function store(Request $request)
     {

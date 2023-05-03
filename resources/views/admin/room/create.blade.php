@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 <div class="row">
   <div class="col-12">
     <div class="card">
@@ -62,6 +63,7 @@
 <div id="div_error"></div>
 @endsection
 @push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 <script type="text/javascript">
   var path = "{{ route('select2_hotel') }}";
@@ -113,6 +115,7 @@ $('#select2_hotel').select2({
     $('#form-create-room').submit(function(event) {
         event.preventDefault(); // ngăn chặn gửi form trực tiếp đi
         var formData = $(this).serializeArray(); // lấy thông tin từ form
+
         $.ajax({
             url: '{{route('api.room.store')}}',
             type: 'POST',
@@ -123,10 +126,10 @@ $('#select2_hotel').select2({
   },
             success: function(response) {
                   $('#form-create-room')[0].reset();
-                  // hiend thi thong bao thanh cong bang toastr
-                  toastr.success('Add room success!');
-                  // location.reload(); ve lai trang room.index
-                  window.location.href = '{{route('admin.room.index')}}';
+        toastr.success(response.message, 'Notification', {timeOut: 5000});
+        setTimeout(function () {
+            window.location.href = '/admin/room';
+        }, 5000);
             },
             error: function(xhr) {
               
