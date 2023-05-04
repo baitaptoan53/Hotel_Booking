@@ -7,13 +7,14 @@ use App\Http\Resources\Booking as ResourcesBooking;
 use App\Http\Resources\User;
 use App\Models\Reservation;
 use App\Models\User as ModelsUser;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BookingController extends BaseController
 {
     public function index()
     {
-        $data = Reservation::with('user','room_reserved.room')->paginate(10);
+        $data = Reservation::with('user', 'room_reserved.room')->paginate(10);
         $pagination = $data->toArray();
         $data = [
             'data' => ResourcesBooking::collection($data),
@@ -36,4 +37,15 @@ class BookingController extends BaseController
         ];
         return $this->sendResponse($data, 'Bookings retrieved successfully.');
     }
+    public function latestBookings()
+{
+    $now = Carbon::now();
+    $bookings = Reservation::where('check_in', '<=', $now)
+                        ->where('check_out', '>=', $now)
+                        ->orderBy('created_at', 'desc')
+                        ->take(5)
+                        ->get();
+
+    return response()->json(['bookings' => $bookings]);
+}
 }
