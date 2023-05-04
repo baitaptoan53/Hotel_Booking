@@ -26,3 +26,5 @@ Route::delete('users/{id}', [UsersController::class, 'destroy']);
 Route::get('/booking',[BookingController::class, 'index'])->name('booking');
 Route::get('/room', [RoomController::class, 'index'])->name('room');
 Route::post('/room/store', [RoomController::class, 'store'])->name('room.store');
+Route::get('/room/{id}', [RoomController::class, 'edit'])->name('room.edit');
+Route::post('/room/update/{id}', [RoomController::class, 'update'])->name('room.update');

@@ -72,4 +72,30 @@ class RoomController extends BaseController
             'data' => $room
         ], 201);
     }
+    public function edit($id)
+    {
+        $room = Room::find($id);
+        if (is_null($room)) {
+            return $this->sendError('Room not found.');
+        }
+        return $this->sendResponse(new ResourcesRoom($room), 'Room fetched.');
+    }
+    public function update(Request $request, $id)
+    {
+        $room = Room::find($id);
+        if (is_null($room)) {
+            return $this->sendError('Room not found.');
+        }
+        $room->room_name = $request->input('room_name');
+        $room->description = $request->input('description');
+        $room->rate = $request->input('rate');
+        $room->hotel_id = $request->input('hotel_id');
+        $room->room_type_id = $request->input('room_type_id');
+        $room->current_price = $request->input('current_price');
+        // $file = $request->file('photo');
+        // $file->move('img', $file->getClientOriginalName());
+        // $room->photo = $file->getClientOriginalName();
+        $room->save();
+        return $this->sendResponse(new ResourcesRoom($room), 'Room updated.');
+    }
 }

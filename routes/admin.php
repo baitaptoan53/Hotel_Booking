@@ -38,6 +38,7 @@ Route::group(
                function () {
                               Route::get('/', [RoomController::class, 'index'])->name('index');
                               Route::get('/create', [RoomController::class, 'create'])->name('create');
+                              Route::get('/{room}/edit', [RoomController::class, 'edit'])->name('edit');
                               // Route::get('/{post}', [PostController::class, 'show'])->name('show');
                               // Route::delete('/{post}', [PostController::class, 'destroy'])->name('destroy');
                },

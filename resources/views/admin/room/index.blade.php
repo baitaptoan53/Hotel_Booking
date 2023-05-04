@@ -45,7 +45,7 @@
             var perPage = response.data.meta.per_page;
             var currentPage = response.data.meta.current_page;
             var tableHtml = '<table>';
-                tableHtml+= '<tr><th>ID</th><th>Room name</th><th>Description</th><th>Address</th><th>Price</th><th>Rating</th><th>Photo</th><th>Created at</th><th>Update at</th></tr>';
+                tableHtml+= '<tr><th>ID</th><th>Room name</th><th>Description</th><th>Address</th><th>Price</th><th>Rating</th><th>Photo</th><th>Created at</th><th>Update at</th><th>Edit</th></th></tr>';
             $.each(rooms, function( index,room) {
                let created_at = convertDateToDateTime(room.created_at);
                let updated_at = convertDateToDateTime(room.updated_at);
@@ -59,9 +59,10 @@
                 tableHtml += '<td>' + room.address + '</td>';
                 tableHtml += '<td>' + room.price + '</td>';
                 tableHtml += '<td>' + room.rate + '</td>';
-                              tableHtml += '<td>' + room.photo + '</td>';
+                tableHtml += '<td>' + room.photo + '</td>';
                 tableHtml += '<td>' + created_at + '</td>';
-                              tableHtml += '<td>' + updated_at + '</td>';
+                tableHtml += '<td>' + updated_at + '</td>';
+                tableHtml += '<td><a href="/admin/room/' + room.id + '/edit" class="btn btn-primary">Edit</a></td>';
                 tableHtml += '</tr>';
             });
             tableHtml += '</table>';
@@ -95,7 +96,6 @@
             }
         });
     }
-
     getRooms(currentPage);
 });
 </script>
