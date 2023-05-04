@@ -8,13 +8,16 @@ use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('admin.room.index');
     }
-    public function create(){
+    public function create()
+    {
         return view('admin.room.create');
     }
-    public function edit($id){
+    public function edit($id)
+    {
         $room = Room::find($id);
         return view('admin.room.edit', compact('room'));
     }

@@ -37,15 +37,4 @@ class BookingController extends BaseController
         ];
         return $this->sendResponse($data, 'Bookings retrieved successfully.');
     }
-    public function latestBookings()
-{
-    $now = Carbon::now();
-    $bookings = Reservation::where('check_in', '<=', $now)
-                        ->where('check_out', '>=', $now)
-                        ->orderBy('created_at', 'desc')
-                        ->take(5)
-                        ->get();
-
-    return response()->json(['bookings' => $bookings]);
-}
 }

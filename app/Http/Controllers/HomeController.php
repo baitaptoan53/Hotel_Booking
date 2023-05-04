@@ -21,7 +21,7 @@ class HomeController extends Controller
         // đếm tổng số phòng 
         $count_room = Room::count();
         $cities = City::all();
-        return view('home.index', compact('rooms', 'count_room','cities'));
+        return view('home.index', compact('rooms', 'count_room', 'cities'));
     }
     public function autocomplete(Request $request): JsonResponse
     {
