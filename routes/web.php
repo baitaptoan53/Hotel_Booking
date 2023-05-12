@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LangController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SearchController;
 use App\Models\Room;
@@ -55,3 +56,6 @@ Route::get('/admin/users', function () {
 })->name('admin.users.index');
 Route::get('select2_hotel', [RoomController::class, 'select2_hotel'])->name('select2_hotel');
 Route::get('select2_room_type', [RoomController::class, 'select2_room_type'])->name('select2_room_type');
+Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
+
+Route::get('lang/home', [LangController::class, 'index']);

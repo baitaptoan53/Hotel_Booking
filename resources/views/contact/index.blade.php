@@ -5,13 +5,12 @@
 <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center pb-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Contact</h1>
+            <h1 class="display-3 text-white mb-3 animated slideInDown">{{__('messages.contact')}}</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
-                    <li class="breadcrumb-item"><a href="{{route('home.index')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('home.index')}}">{{__('messages.home')}}</a></li>
 
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">{{__('messages.contact')}}</li>
                 </ol>
             </nav>
         </div>
@@ -29,22 +28,22 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title text-center text-primary text-uppercase">Contact Us</h6>
-            <h1 class="mb-5"><span class="text-primary text-uppercase">Contact</span> For Any Query</h1>
+            <h6 class="section-title text-center text-primary text-uppercase">{{__('messages.contact us')}}</h6>
+            <h1 class="mb-5"><span class="text-primary text-uppercase">{{__('messages.contact')}}</span> {{__('messages.For Any Query')}}</h1>
         </div>
         <div class="row g-4">
             <div class="col-12">
                 <div class="row gy-4">
                     <div class="col-md-4">
-                        <h6 class="section-title text-start text-primary text-uppercase">Booking</h6>
+                        <h6 class="section-title text-start text-primary text-uppercase">{{__('messages.BOOKING')}}</h6>
                         <p><i class="fa fa-envelope-open text-primary me-2"></i>book@example.com</p>
                     </div>
                     <div class="col-md-4">
-                        <h6 class="section-title text-start text-primary text-uppercase">General</h6>
+                        <h6 class="section-title text-start text-primary text-uppercase">{{__('messages.GENERAL')}}</h6>
                         <p><i class="fa fa-envelope-open text-primary me-2"></i>info@example.com</p>
                     </div>
                     <div class="col-md-4">
-                        <h6 class="section-title text-start text-primary text-uppercase">Technical</h6>
+                        <h6 class="section-title text-start text-primary text-uppercase">{{__('messages.TECHNICAL')}}</h6>
                         <p><i class="fa fa-envelope-open text-primary me-2"></i>tech@example.com</p>
                     </div>
                 </div>
@@ -85,7 +84,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                <button class="btn btn-primary w-100 py-3" type="submit">{{__('messages.Send message')}}</button>
                             </div>
                         </div>
                     </form>
@@ -103,11 +102,11 @@
         <div class="col-lg-10 border rounded p-1">
             <div class="border rounded text-center p-1">
                 <div class="bg-white rounded text-center p-5">
-                    <h4 class="mb-4">Subscribe Our <span class="text-primary text-uppercase">Newsletter</span></h4>
+                    <h4 class="mb-4">{{__('messages.Subscribe to our')}} <span class="text-primary text-uppercase">{{__('messages.newsletter')}}</span></h4>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
                         <button type="button"
-                            class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                            class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">{{__('messages.Submit')}}</button>
                     </div>
                 </div>
             </div>
@@ -121,7 +120,7 @@
     var path = "{{ route('autocomplete') }}";
   
     $('#search').select2({
-        placeholder: 'Select an city',
+        placeholder: '{{__('messages.Select an city')}}',
         tags: true,
         ajax: {
           url: path,

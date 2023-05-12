@@ -10,10 +10,7 @@
                                                             <ol
                                                                            class="breadcrumb justify-content-center text-uppercase">
                                                                            <li class="breadcrumb-item"><a
-                                                                                                         href="{{route('home.index')}}">Home</a>
-                                                                           </li>
-                                                                           <li class="breadcrumb-item"><a
-                                                                                                         href="#">Pages</a>
+                                                                                                         href="{{route('home.index')}}">{{__('messages.home')}}</a>
                                                                            </li>
                                                                            <li class="breadcrumb-item text-white active"
                                                                                           aria-current="page">Services
@@ -30,7 +27,7 @@
                               <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                                              <h6 class="section-title text-center text-primary text-uppercase">Our
                                                             Services</h6>
-                                             <h1 class="mb-5">Explore Our <span
+                                             <h1 class="mb-5">{{__('messages.EXPLORE')}} <span
                                                                            class="text-primary text-uppercase">Services</span>
                                              </h1>
                               </div>
@@ -147,8 +144,9 @@
                               <div class="col-lg-10 border rounded p-1">
                                              <div class="border rounded text-center p-1">
                                                             <div class="bg-white rounded text-center p-5">
-                                                                           <h4 class="mb-4">Subscribe Our <span
-                                                                                                         class="text-primary text-uppercase">Newsletter</span>
+                                                                           <h4 class="mb-4">{{__('messages.Subscribe to
+                                                                                          our')}} <span
+                                                                                                         class="text-primary text-uppercase">{{__('messages.newsletter')}}</span>
                                                                            </h4>
                                                                            <div class="position-relative mx-auto"
                                                                                           style="max-width: 400px;">
@@ -156,7 +154,7 @@
                                                                                                          type="text"
                                                                                                          placeholder="Enter your email">
                                                                                           <button type="button"
-                                                                                                         class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                                                                                                         class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">{{__('messages.Submit')}}</button>
                                                                            </div>
                                                             </div>
                                              </div>

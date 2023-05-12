@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title', config('app.name'))
 @section('content')
+
 <!-- Carousel Start -->
 <div class="container-fluid p-0 mb-5">
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -9,11 +10,11 @@
                 <img class="w-100" src="{{asset('img/carousel-1.jpg')}}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 700px;">
-                        <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Luxury Living</h6>
-                        <h1 class="display-3 text-white mb-4 animated slideInDown">Discover A Brand Luxurious Hotel</h1>
+                        <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">{{__('messages.LUXURY LIVING')}}</h6>
+                        <h1 class="display-3 text-white mb-4 animated slideInDown">{{__('messages.Discover A Brand Luxurious Hotel')}}</h1>
                         <a href="{{route('room.index')}}"
-                            class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Rooms</a>
-                        <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Book A Room</a>
+                            class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{{__('messages.OUR ROOMS')}}</a>
+                        <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">{{__('messages.BOOK A ROOM')}}</a>
                     </div>
                 </div>
             </div>
@@ -21,11 +22,11 @@
                 <img class="w-100" src="{{asset('img/carousel-2.jpg')}}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 700px;">
-                        <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Luxury Living</h6>
-                        <h1 class="display-3 text-white mb-4 animated slideInDown">Discover A Brand Luxurious Hotel</h1>
+                        <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">{{__('messages.LUXURY LIVING')}}</h6>
+                        <h1 class="display-3 text-white mb-4 animated slideInDown">{{__('messages.Discover A Brand Luxurious Hotel')}}</h1>
                         <a href="{{route('room.index')}}"
-                            class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Rooms</a>
-                        <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Book A Room</a>
+                            class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{{__('messages.OUR ROOMS')}}</a>
+                        <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">{{__('messages.BOOK A ROOM')}}</a>
                     </div>
                 </div>
             </div>
@@ -55,17 +56,16 @@
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6">
-                <h6 class="section-title text-start text-primary text-uppercase">About Us</h6>
-                <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase">Hotelier</span></h1>
-                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et
-                    eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                <h6 class="section-title text-start text-primary text-uppercase">{{__('messages.ABOUT US')}}</h6>
+                <h1 class="mb-4">{{__('messages.Welcome')}}<span class="text-primary text-uppercase"> Hotelier</span></h1>
+                <p class="mb-4">{{__('messages.welcome to hotelier des')}}</p>
                 <div class="row g-3 pb-4">
                     <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                         <div class="border rounded p-1">
                             <div class="border rounded text-center p-4">
                                 <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
                                 <h2 class="mb-1" data-toggle="counter-up">{{$count_room}}</h2>
-                                <p class="mb-0">Rooms</p>
+                                <p class="mb-0">{{__('messages.room')}}</p>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                             <div class="border rounded text-center p-4">
                                 <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>
                                 <h2 class="mb-1" data-toggle="counter-up">1234</h2>
-                                <p class="mb-0">Staffs</p>
+                                <p class="mb-0">{{__('messages.Staff')}}</p>
                             </div>
                         </div>
                     </div>
@@ -83,12 +83,12 @@
                             <div class="border rounded text-center p-4">
                                 <i class="fa fa-users fa-2x text-primary mb-2"></i>
                                 <h2 class="mb-1" data-toggle="counter-up">1234</h2>
-                                <p class="mb-0">Clients</p>
+                                <p class="mb-0">{{__('messages.Clients')}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a class="btn btn-primary py-3 px-5 mt-2" href="">Explore More</a>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="">{{__('messages.EXPLORE MORE')}}</a>
             </div>
             <div class="col-lg-6">
                 <div class="row g-3">
@@ -116,8 +116,8 @@
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-12">
-                <h1 class="mb-4">Explore <span class="text-primary text-uppercase">Vietnam</span></h1>
-                <p class="mb-4">These popular destinations have a lot to offer</p>
+                <h1 class="mb-4">{{__('messages.EXPLORE')}} <span class="text-primary text-uppercase">Vietnam</span></h1>
+                <p class="mb-4">{{__('messages.EXPLORE des')}}</p>
                 <!-- TESTIMONIALS -->
                 <section class="testimonials">
                     <div class="container">
@@ -149,7 +149,7 @@
                     </div>
                 </section>
                 <!-- END OF TESTIMONIALS -->
-                <a class="btn btn-primary py-3 px-5 mt-2" href="">Explore More</a>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="">{{__('messages.EXPLORE MORE')}}</a>
             </div>
         </div>
     </div>
@@ -159,8 +159,8 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title text-center text-primary text-uppercase">Our Rooms</h6>
-            <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Rooms</span></h1>
+            <h6 class="section-title text-center text-primary text-uppercase">{{__('messages.OUR ROOMS')}}</h6>
+            <h1 class="mb-5">{{__('messages.EXPLORE')}} <span class="text-primary text-uppercase">{{__('messages.ROOMS')}}</span></h1>
         </div>
         <div class="row g-4">
             @foreach ($rooms as $room)
@@ -199,9 +199,9 @@
 
                         <div class="d-flex justify-content-between">
                             <a class="btn btn-sm btn-primary rounded py-2 px-4"
-                                href="{{route('room.show',$room->id)}}">View Detail</a>
+                                href="{{route('room.show',$room->id)}}">{{__('messages.View Details')}}</a>
                             <a class="btn btn-sm btn-dark rounded py-2 px-4"
-                                href="{{route('room.booking',$room->id)}}">Book Now</a>
+                                href="{{route('room.booking',$room->id)}}">{{__('messages.Book Now')}}</a>
                         </div>
                     </div>
                 </div>
@@ -218,12 +218,10 @@
     <div class="row g-0">
         <div class="col-md-6 bg-dark d-flex align-items-center">
             <div class="p-5">
-                <h6 class="section-title text-start text-white text-uppercase mb-3">Luxury Living</h6>
-                <h1 class="text-white mb-4">Discover A Brand Luxurious Hotel</h1>
-                <p class="text-white mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
-                    diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat
-                    amet</p>
-                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Our Rooms</a>
+                <h6 class="section-title text-start text-white text-uppercase mb-3">{{__('messages.LUXURY LIVING')}}</h6>
+                <h1 class="text-white mb-4">{{__('messages.Discover A Brand Luxurious Hotel')}} </h1>
+                <p class="text-white mb-4">{{__('messages.video luxury des')}}</p>
+                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">{{__('messages.OUR ROOMS')}}</a>
                 <a href="" class="btn btn-light py-md-3 px-md-5">Book A Room</a>
             </div>
         </div>
@@ -263,7 +261,7 @@
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>
-            <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Services</span></h1>
+            <h1 class="mb-5">{{__('messages.EXPLORE')}} <span class="text-primary text-uppercase">{{__('messages.services')}}</span></h1>
         </div>
         <div class="row g-4">
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -273,7 +271,7 @@
                             <i class="fa fa-hotel fa-2x text-primary"></i>
                         </div>
                     </div>
-                    <h5 class="mb-3">Rooms & Appartment</h5>
+                    <h5 class="mb-3">{{__('messages.ROOMS')}} & {{__('messages.Appartment')}}</h5>
                     <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
                         stet diam sed stet lorem.</p>
                 </a>
@@ -285,7 +283,7 @@
                             <i class="fa fa-utensils fa-2x text-primary"></i>
                         </div>
                     </div>
-                    <h5 class="mb-3">Food & Restaurant</h5>
+                    <h5 class="mb-3">{{__('messages.Food')}} & {{__('messages.Restaurant')}}t</h5>
                     <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
                         stet diam sed stet lorem.</p>
                 </a>
@@ -297,7 +295,7 @@
                             <i class="fa fa-spa fa-2x text-primary"></i>
                         </div>
                     </div>
-                    <h5 class="mb-3">Spa & Fitness</h5>
+                    <h5 class="mb-3">Spa & {{__('messages.Fitness')}}</h5>
                     <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
                         stet diam sed stet lorem.</p>
                 </a>
@@ -309,7 +307,7 @@
                             <i class="fa fa-swimmer fa-2x text-primary"></i>
                         </div>
                     </div>
-                    <h5 class="mb-3">Sports & Gaming</h5>
+                    <h5 class="mb-3">{{__('messages.Swimming Pool')}}</h5>
                     <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
                         stet diam sed stet lorem.</p>
                 </a>
@@ -321,7 +319,7 @@
                             <i class="fa fa-glass-cheers fa-2x text-primary"></i>
                         </div>
                     </div>
-                    <h5 class="mb-3">Event & Party</h5>
+                    <h5 class="mb-3">{{__('messages.Events')}} & {{__('messages.Party')}}</h5>
                     <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
                         stet diam sed stet lorem.</p>
                 </a>
@@ -398,7 +396,7 @@
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title text-center text-primary text-uppercase">Our Team</h6>
-            <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Staffs</span></h1>
+            <h1 class="mb-5">{{__('messages.EXPLORE')}} <span class="text-primary text-uppercase">{{__('messages.Staff')}}</span></h1>
         </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -477,11 +475,11 @@
         <div class="col-lg-10 border rounded p-1">
             <div class="border rounded text-center p-1">
                 <div class="bg-white rounded text-center p-5">
-                    <h4 class="mb-4">Subscribe Our <span class="text-primary text-uppercase">Newsletter</span></h4>
+                    <h4 class="mb-4">{{__('messages.Subscribe to our')}} <span class="text-primary text-uppercase">{{__('messages.newsletter')}}</span></h4>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
                         <button type="button"
-                            class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                            class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">{{__('messages.Submit')}}</button>
                     </div>
                 </div>
             </div>
@@ -500,7 +498,7 @@
     var path = "{{ route('autocomplete') }}";
   
     $('#search').select2({
-        placeholder: 'Select an city',
+        placeholder: '{{__('messages.Select an city')}}',
         tags: true,
         ajax: {
           url: path,

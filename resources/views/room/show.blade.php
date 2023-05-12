@@ -22,7 +22,7 @@
                 <h5 class="mb-3">Price: {{ $room->reserved->price }} $/Day</h5>
                 <p class="mb-3">{{ $room->description }}</p>
                 </h5>
-                <a class="btn btn-primary" href="{{route('room.booking',$room->id)}}">BOOK NOW</a>
+                <a class="btn btn-primary" href="{{route('room.booking',$room->id)}}">{{__('messages.Book Now')}}</a>
         </div>
     </div>
 </div>
@@ -32,11 +32,11 @@
         <div class="col-lg-10 border rounded p-1">
             <div class="border rounded text-center p-1">
                 <div class="bg-white rounded text-center p-5">
-                    <h4 class="mb-4">Subscribe Our <span class="text-primary text-uppercase">Newsletter</span></h4>
+                    <h4 class="mb-4">{{__('messages.Subscribe to our')}} <span class="text-primary text-uppercase">{{__('messages.newsletter')}}</span></h4>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
                         <button type="button"
-                            class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                            class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">{{__('messages.Submit')}}</button>
                     </div>
                 </div>
             </div>

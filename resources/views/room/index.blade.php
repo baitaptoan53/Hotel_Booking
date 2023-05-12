@@ -5,12 +5,11 @@
 <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center pb-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Rooms</h1>
+            <h1 class="display-3 text-white mb-3 animated slideInDown">{{__('messages.room')}}</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
-                    <li class="breadcrumb-item"><a href="{{route('home.index')}}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Rooms</li>
+                    <li class="breadcrumb-item"><a href="{{route('home.index')}}">{{__('messages.home')}}</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">{{__('messages.room')}}</li>
                 </ol>
             </nav>
         </div>
@@ -46,7 +45,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-primary w-100">Search</button>
+                        <button class="btn btn-primary w-100">{{__('messages.SEARCH')}}</button>
                     </div>
             </form>
         </div>
@@ -61,8 +60,8 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title text-center text-primary text-uppercase">Our Rooms</h6>
-            <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Rooms</span></h1>
+            <h6 class="section-title text-center text-primary text-uppercase">{{__('messages.OUR ROOMS')}}</h6>
+            <h1 class="mb-5">{{__('messages.EXPLORE')}} <span class="text-primary text-uppercase">{{__('messages.room')}}</span></h1>
         </div>
         <div class="row g-4">
             @foreach($rooms as $room)
@@ -103,9 +102,9 @@
                         </p>
                         <div class="d-flex justify-content-between">
                             <a class="btn btn-sm btn-primary rounded py-2 px-4"
-                                href="{{route('room.show', $room->id)}}">View Detail</a>
+                                href="{{route('room.show', $room->id)}}">{{__('messages.View Details')}}</a>
                             <a class="btn btn-sm btn-dark rounded py-2 px-4"
-                                href="{{route('room.booking',$room->id)}}">Book Now</a>
+                                href="{{route('room.booking',$room->id)}}">{{__('messages.Book Now')}}</a>
                         </div>
                     </div>
                 </div>
@@ -176,11 +175,11 @@
         <div class="col-lg-10 border rounded p-1">
             <div class="border rounded text-center p-1">
                 <div class="bg-white rounded text-center p-5">
-                    <h4 class="mb-4">Subscribe Our <span class="text-primary text-uppercase">Newsletter</span></h4>
+                    <h4 class="mb-4">{{__('messages.Subscribe to our')}} <span class="text-primary text-uppercase">{{__('messages.newsletter')}}</span></h4>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
                         <button type="button"
-                            class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                            class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">{{__('messages.Submit')}}</button>
                     </div>
                 </div>
             </div>
@@ -195,7 +194,7 @@
     var path = "{{ route('autocomplete') }}";
   
     $('#search').select2({
-        placeholder: 'Select an city',
+        placeholder: '{{__('messages.Select an city')}}',
         tags: true,
         ajax: {
           url: path,

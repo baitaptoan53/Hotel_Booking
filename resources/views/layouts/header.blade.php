@@ -18,6 +18,19 @@
                         <i class="fa fa-phone-alt text-primary me-2"></i>
                         <p class="mb-0">+012 345 6789</p>
                     </div>
+                    <div class="ml-3 h-100 d-inline-flex align-items-center py-2">
+
+                        <select class="form-control changeLang">
+                            <option value="en" {{ session()->
+                                get('locale') == 'en' ?
+                                'selected' : '' }}>English
+                            </option>
+                            <option value="vi" {{ session()->
+                                get('locale') == 'vi' ?
+                                'selected' : '' }}>Vietnamese
+                            </option>
+                        </select>
+                    </div>
                 </div>
                 <div class="col-lg-5 px-5 text-end">
                     <div class="d-inline-flex align-items-center py-2">
@@ -38,18 +51,11 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="{{route('home.index')}}" class="nav-item nav-link active">Home</a>
-                        <a href="{{route('about.index')}}" class="nav-item nav-link">About</a>
-                        <a href="{{route('service.index')}}" class="nav-item nav-link">Services</a>
-                        <a href="{{route('room.index')}}" class="nav-item nav-link">Rooms</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
-                        <a href="{{route('contact.index')}}" class="nav-item nav-link">Contact</a>
+                        <a href="{{route('home.index')}}" class="nav-item nav-link active">{{__('messages.home')}}</a>
+                        <a href="{{route('about.index')}}" class="nav-item nav-link">{{__('messages.about')}}</a>
+                        <a href="{{route('service.index')}}" class="nav-item nav-link">{{__('messages.services')}}</a>
+                        <a href="{{route('room.index')}}" class="nav-item nav-link">{{__('messages.room')}}</a>
+                        <a href="{{route('contact.index')}}" class="nav-item nav-link">{{__('messages.contact')}}</a>
                     </div>
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->

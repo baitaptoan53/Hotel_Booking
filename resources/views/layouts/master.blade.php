@@ -30,6 +30,7 @@
 
 <body>
                <div class="container-xxl bg-white p-0">
+
                               <!-- Spinner Start -->
                               <div id="spinner"
                                              class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -57,6 +58,12 @@
                <link rel="stylesheet"
                               href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+               <script>
+                              var url = "{{ route('changeLang') }}";
+                              $(".changeLang").change(function(){
+                              window.location.href = url + "?lang="+ $(this).val();
+                              });  
+               </script>
                @stack('scripts')
 
 

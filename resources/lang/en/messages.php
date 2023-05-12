@@ -1,0 +1,60 @@
+
+<?php
+
+return [
+
+    'title' => 'Vietnamese Language Title.',
+    'home'=>'Home',
+    'about'=>'About',
+    'about us'=>'About Us',
+    'contact'=>'Contact',
+    'contact us'=>'Contact Us',
+    'support'=>'Support',
+    'room'=>'Rooms',
+    'services'=>'Services',
+    'Discover A Brand Luxurious Hotel' => 'Discover A Brand Luxurious Hotel',
+    'LUXURY ROOMS' => 'LUXURY ROOMS',
+    'BOOK A ROOM' => 'BOOK A ROOM',
+    'SEARCH' => 'SEARCH',
+    'ABOUT US' => 'ABOUT US',
+    'Welcome'=>'Welcome to',
+    'welcome to hotelier des'=>'We are delighted to welcome you here, where you can find the best booking experience. With a variety of room types and reasonable prices, we believe you will find the right room for your needs.',
+    'EXPLORE MORE' => 'EXPLORE MORE',
+    'EXPLORE' => 'EXPLORE',
+    'EXPLORE des'=>'These popular destinations have a lot to offer',
+    'ROOMS' => 'ROOMS',
+    'Staff' => 'Staff',
+    'Clients' => 'Clients',
+    'EXPLORE VIETNAM des' => 'These popular destinations have a lot to offer',
+    'EXPLORE VIETNAM' => 'EXPLORE VIETNAM',
+    'BOOK NOW' => 'BOOK NOW',
+    'video luxury des' => 'We are delighted to welcome you here, where you can find the best booking experience. With a variety of room types and reasonable prices, we believe you will find the right room for your needs.',
+    'Apartments' => 'Apartments',
+    'Food'=>'Food',
+    'Gym'=>'Gym',
+    'Restaurant'=>'Restaurant',
+    'Swimming Pool'=>'Swimming Pool',
+    'Events'=>'Events',
+    'Party'=>'Party',
+    'Yoga'=>'Yoga',
+    'Subscribe to our' => 'Subscribe to our',
+    'newsletter' => 'Newsletter',
+    'Submit' => 'Submit',
+    'Company' => 'Company',
+    'View Details' => 'View Details',
+    //footer
+    'Privacy Policy'=>'Privacy Policy',
+    'Terms & Conditions'=>'Terms & Conditions',
+
+    'View Policy'=>'View Policy',
+    'For Any Query'=>'For Any Query',
+
+    'Send message'=>'Send message',
+
+    'GENERAL'=>'GENERAL',
+    'TECHNICAL'=>'TECHNICAL',
+    'BOOKING'=>'BOOKING',
+    'Book Now'=>'BOOK NOW',
+
+    'Select an city'=>'Select an city',
+];

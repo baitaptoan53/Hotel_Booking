@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-primary w-100">Search</button>
+                        <button class="btn btn-primary w-100">{{__('messages.SEARCH')}}</button>
                     </div>
             </form>
         </div>

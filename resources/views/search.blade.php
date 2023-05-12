@@ -4,8 +4,8 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title text-center text-primary text-uppercase">Our Rooms</h6>
-            <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Rooms</span></h1>
+            <h6 class="section-title text-center text-primary text-uppercase">{{__('messages.OUR ROOMS')}}</h6>
+            <h1 class="mb-5">{{__('messages.EXPLORE')}} <span class="text-primary text-uppercase">{{__('messages.room')}}</span></h1>
         </div>
         <div class="row g-4">
             @foreach($rooms as $room)
@@ -48,7 +48,7 @@
                             <a class="btn btn-sm btn-primary rounded py-2 px-4"
                                 href="{{route('room.show', $room->id)}}">View Detail</a>
                             <a class="btn btn-sm btn-dark rounded py-2 px-4"
-                                href="{{route('room.booking',$room->id)}}">Book Now</a>
+                                href="{{route('room.booking',$room->id)}}">{{__('messages.Book Now')}}</a>
                         </div>
                     </div>
                 </div>
@@ -67,11 +67,11 @@
         <div class="col-lg-10 border rounded p-1">
             <div class="border rounded text-center p-1">
                 <div class="bg-white rounded text-center p-5">
-                    <h4 class="mb-4">Subscribe Our <span class="text-primary text-uppercase">Newsletter</span></h4>
+                    <h4 class="mb-4">{{__('messages.Subscribe to our')}} <span class="text-primary text-uppercase">{{__('messages.newsletter')}}</span></h4>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
                         <button type="button"
-                            class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                            class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">{{__('messages.Submit')}}</button>
                     </div>
                 </div>
             </div>
