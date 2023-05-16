@@ -1,8 +1,6 @@
 
 <?php
-
 return [
-
     'title' => 'Vietnamese Language Title.',
     'home'=>'Home',
     'about'=>'About',
@@ -13,7 +11,7 @@ return [
     'room'=>'Rooms',
     'services'=>'Services',
     'Discover A Brand Luxurious Hotel' => 'Discover A Brand Luxurious Hotel',
-    'LUXURY ROOMS' => 'LUXURY ROOMS',
+    'LUXURY LIVING' => 'LUXURY LIVING',
     'BOOK A ROOM' => 'BOOK A ROOM',
     'SEARCH' => 'SEARCH',
     'ABOUT US' => 'ABOUT US',

@@ -144,8 +144,7 @@
                               <div class="col-lg-10 border rounded p-1">
                                              <div class="border rounded text-center p-1">
                                                             <div class="bg-white rounded text-center p-5">
-                                                                           <h4 class="mb-4">{{__('messages.Subscribe to
-                                                                                          our')}} <span
+                                                                           <h4 class="mb-4">{{__('messages.Subscribe to our')}} <span
                                                                                                          class="text-primary text-uppercase">{{__('messages.newsletter')}}</span>
                                                                            </h4>
                                                                            <div class="position-relative mx-auto"
