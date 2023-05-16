@@ -59,4 +59,5 @@ return [
     'Select an city'=>'Chọn một thành phố',
     'Check in'=>'Ngày nhận phòng',
     'Check out'=>'Ngày trả phòng',
+    'comment'=>'Bình luận',
 ];

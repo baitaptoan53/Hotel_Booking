@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\RoomController;
@@ -59,3 +60,4 @@ Route::get('select2_room_type', [RoomController::class, 'select2_room_type'])->n
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
 Route::get('lang/home', [LangController::class, 'index']);
+Route::post('/comments', [CommentController::class,'store'])->name('comments.store');

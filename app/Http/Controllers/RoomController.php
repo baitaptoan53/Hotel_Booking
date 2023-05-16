@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Comment;
 use App\Models\Company;
 use App\Models\Hotel;
 use App\Models\Reservation;
@@ -35,8 +36,8 @@ class RoomController extends Controller
     public function show($id)
     {
         $room = Room::with('hotel.company', 'reserved', 'roomType')->find($id);
-        // dd($room);
-        return view('room.show', compact('room'));
+        $comments = Comment::where('room_id', $room->id)->orderBy('created_at', 'desc')->get();
+        return view('room.show', compact('room', 'comments'));
     }
     public function booking($id)
     {

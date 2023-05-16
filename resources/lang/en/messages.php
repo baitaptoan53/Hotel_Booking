@@ -55,4 +55,5 @@ return [
     'Book Now'=>'BOOK NOW',
 
     'Select an city'=>'Select an city',
+    'comment'=>'Comment',
 ];
