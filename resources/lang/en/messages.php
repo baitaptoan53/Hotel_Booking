@@ -21,6 +21,7 @@ return [
     'EXPLORE' => 'EXPLORE',
     'EXPLORE des'=>'These popular destinations have a lot to offer',
     'ROOMS' => 'ROOMS',
+    'OUR ROOMS'=>'OUR ROOMS',
     'Staff' => 'Staff',
     'Clients' => 'Clients',
     'EXPLORE VIETNAM des' => 'These popular destinations have a lot to offer',

@@ -26,14 +26,63 @@
         </div>
     </div>
 </div>
-<div class="container-xxl py-5 mb-5">
-    <div class="row">
+
+{{-- @foreach ($comments as $comment)
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ $comment->user->name }}</h5>
+        <p class="card-text">{{ $comment->content }}</p>
+        <p class="card-text"><small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small></p>
+    </div>
+</div>
+@endforeach --}}
+<div class="container mt-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-8">
+            <div class="d-flex flex-column comment-section">
+                @foreach ($comments as $comment)
+                <div class="bg-white p-2">
+                    <div class="d-flex flex-row user-info">
+                        @if ($comment->user->photo == null)
+                        <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                        @else
+                        <img class="rounded-circle" src="{{asset('/storage/'.$comment->user->photo)}}" width="40">
+                        @endif
+                        <div class="d-flex flex-column justify-content-start ml-2"><span
+                                class="d-block font-weight-bold name">{{$comment->user->name}}</span><span
+                                class="date text-black-50">{{ $comment->created_at->diffForHumans() }}</span></div>
+                    </div>
+                    <div class="mt-2">
+                        <p class="comment-text">{{$comment->content}}</p>
+                    </div>
+                </div>
+                <div class="bg-white">
+                    <div class="d-flex flex-row fs-12">
+                        <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span>
+                        </div>
+                        <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span>
+                        </div>
+                        <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-light p-2">
+    @if ( Auth::user()->photo == null)
+    <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+    @else
+    <img class="rounded-circle" src="{{asset('/storage/'.$comment->user->photo)}}" width="40">
+    @endif
+    {{ Auth::user()->name }}
+    <div class="row mt-3">
         @if (Auth::check())
         <form method="POST" action="{{ route('comments.store') }}">
             @csrf
             <div class="form-group">
                 <input type="hidden" name="room_id" value="{{ $room->id }}">
-                <label for="content">{{__('messages.comment')}}</label>
                 <textarea class="form-control" id="content" name="content" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary mt-3">{{__('messages.comment')}}</button>
@@ -43,15 +92,6 @@
         @endif
     </div>
 </div>
-@foreach ($comments as $comment)
-<div class="card mb-3">
-    <div class="card-body">
-        <h5 class="card-title">{{ $comment->user->name }}</h5>
-        <p class="card-text">{{ $comment->content }}</p>
-        <p class="card-text"><small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small></p>
-    </div>
-</div>
-@endforeach
 <!-- Newsletter Start -->
 <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="row justify-content-center">
