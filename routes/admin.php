@@ -27,6 +27,7 @@ Route::group(
                ],
                function () {
                               Route::get('/', [BookingController::class, 'index'])->name('index');
+                              Route::get('export/', [BookingController::class, 'export'])->name('export');
                               // Route::get('/{post}', [PostController::class, 'show'])->name('show');
                               // Route::delete('/{post}', [PostController::class, 'destroy'])->name('destroy');
                },

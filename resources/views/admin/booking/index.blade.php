@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                
+                <a href="{{route('admin.booking.export')}}" class="btn btn-primary">Export</a>
                 <nav class="float-right">
                     <ul class="pagination pagination-rounded mb-0" id="pagination">
                     </ul>
