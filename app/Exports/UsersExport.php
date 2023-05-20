@@ -4,6 +4,7 @@ namespace App\Exports;
 
 // use App\Http\Resources\User;
 use App\Models\User;
+use Illuminate\Support\Facades\Date;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\Exportable;

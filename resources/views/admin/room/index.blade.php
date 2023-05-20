@@ -7,6 +7,8 @@
                 <a href="{{ route('admin.room.create') }}" class="btn btn-primary">
                     Create
                 </a>
+                <a href="{{route('admin.room.export')}}" class="btn btn-primary">Export</a>
+
                 <nav class="float-right">
                     <ul class="pagination pagination-rounded mb-0" id="pagination">
                     </ul>

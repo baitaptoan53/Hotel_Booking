@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-<a href="{{route('admin.users.export')}}" class="btn btn-primary">export</a>
+<a href="{{route('admin.users.export')}}" class="btn btn-primary">Export</a>
 <div class="row">
     <div class="col-12">
         <div class="card">
