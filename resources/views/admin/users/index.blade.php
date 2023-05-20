@@ -1,11 +1,12 @@
 @extends('admin.layouts.master')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<a href="{{route('admin.users.export')}}" class="btn btn-primary">export</a>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                
+
             </div>
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <div class="card-body">
@@ -29,7 +30,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 <script>
-
     $(document).ready(function() {
     var currentPage = 1;
 

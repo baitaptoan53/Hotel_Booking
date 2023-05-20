@@ -15,6 +15,7 @@ Route::group(
                ],
                function () {
                               Route::get('/', [UsersController::class, 'index'])->name('index');
+                              Route::get('export/', [UsersController::class, 'export'])->name('export');
                               // Route::get('/{user}', [UserController::class, 'show'])->name('show');
                               // Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
                },
