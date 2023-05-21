@@ -3,12 +3,25 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
+            @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+            <div class="alert alert-success">
+                aaaaaaa
+            </div>
             <div class="card-header">
                 <a href="{{ route('admin.room.create') }}" class="btn btn-primary">
                     Create
                 </a>
                 <a href="{{route('admin.room.export')}}" class="btn btn-primary">Export</a>
-
+                {{-- <input type="file" name="file" id="import_file" accept=".xlsx" href={{'admin.room.import'}} /> --}}
+                <form action="{{route('admin.room.import')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="file" id="import_file" accept=".xlsx" />
+                    <button type="submit" class="btn btn-primary">Import</button>
+                </form>
                 <nav class="float-right">
                     <ul class="pagination pagination-rounded mb-0" id="pagination">
                     </ul>
@@ -23,7 +36,6 @@
     </div>
 </div>
 <div id="pagination"></div>
-
 @endsection
 @push('scripts')
 <script>

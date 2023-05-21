@@ -16,6 +16,7 @@ Route::group(
                function () {
                               Route::get('/', [UsersController::class, 'index'])->name('index');
                               Route::get('export/', [UsersController::class, 'export'])->name('export');
+
                               // Route::get('/{user}', [UserController::class, 'show'])->name('show');
                               // Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
                },
@@ -42,7 +43,7 @@ Route::group(
                               Route::get('/create', [RoomController::class, 'create'])->name('create');
                               Route::get('/{room}/edit', [RoomController::class, 'edit'])->name('edit');
                               Route::get('export/', [RoomController::class, 'export'])->name('export');
-
+                              Route::post('import/', [RoomController::class, 'import'])->name('import');
                               // Route::get('/{post}', [PostController::class, 'show'])->name('show');
                               // Route::delete('/{post}', [PostController::class, 'destroy'])->name('destroy');
                },

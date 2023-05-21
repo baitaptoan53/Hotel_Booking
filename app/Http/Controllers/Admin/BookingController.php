@@ -17,4 +17,5 @@ class BookingController extends Controller
     {
         return Excel::download(new BookingExport, 'booking.xlsx');
     }
+    
 }
