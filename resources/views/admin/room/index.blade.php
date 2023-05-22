@@ -8,9 +8,6 @@
                 {{ session('success') }}
             </div>
             @endif
-            <div class="alert alert-success">
-                aaaaaaa
-            </div>
             <div class="card-header">
                 <a href="{{ route('admin.room.create') }}" class="btn btn-primary">
                     Create

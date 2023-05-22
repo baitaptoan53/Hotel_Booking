@@ -1,12 +1,16 @@
 @extends('admin.layouts.master')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-<a href="{{route('admin.users.export')}}" class="btn btn-primary">Export</a>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-
+                <a href="{{route('admin.users.export')}}" class="btn btn-primary">Export</a>
+                <form action="{{route('admin.users.import')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="file" id="import_file" accept=".xlsx" />
+                    <button type="submit" class="btn btn-primary">Import</button>
+                </form>
             </div>
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <div class="card-body">

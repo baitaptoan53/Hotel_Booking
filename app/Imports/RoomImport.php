@@ -6,7 +6,7 @@ use App\Models\Room;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class RoomImport implements ToModel,WithHeadingRow
+class RoomImport implements ToModel, WithHeadingRow
 {
     public function model(array $row)
     {
