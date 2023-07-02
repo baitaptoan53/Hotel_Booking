@@ -71,12 +71,15 @@
     </div>
 </div>
 <div class="bg-light p-2">
-    @if ( Auth::user()->photo == null)
+
+    @if( Auth::check())
+    @if (Auth::user()->photo == null)
     <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
     @else
     <img class="rounded-circle" src="{{asset('/storage/'.$comment->user->photo)}}" width="40">
     @endif
     {{ Auth::user()->name }}
+    @endif
     <div class="row mt-3">
         @if (Auth::check())
         <form method="POST" action="{{ route('comments.store') }}">

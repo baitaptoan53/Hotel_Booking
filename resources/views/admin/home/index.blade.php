@@ -1,6 +1,5 @@
 @extends('admin.layouts.master')
 @section('content')
-
 <div class="container-fluid">
 
   <!-- start page title -->
@@ -47,8 +46,6 @@
                 {{$users}}
               </h3>
               <p class="mb-0 text-muted">
-                {{-- <span class="text-success mr-2"><i class="mdi mdi-arrow-up-bold"></i>
-                  5.27%</span> --}}
                 @if ($calc_users > 0)
                 <span class="text-success mr-2"><i class="mdi mdi-arrow-up-bold"></i>
                   {{ round(($users / $users_last_month) * 100) }}%
@@ -58,8 +55,6 @@
                   {{ round(($users / $users_last_month) * 100) }}%
                 </span>
                 @endif
-
-
                 <span class="text-nowrap">
                   Since
                   last
@@ -118,7 +113,6 @@
                  @else 
                  {{number_format($total_price, 2);}}
                 @endif
-
               </h3>
               <p class="mb-0 text-muted">
                 @if ($calc_total_price > 0)
@@ -137,7 +131,6 @@
             </div> <!-- end card-body-->
           </div> <!-- end card-->
         </div> <!-- end col-->
-
         <div class="col-lg-6">
           <div class="card widget-flat">
             <div class="card-body">
@@ -153,11 +146,11 @@
               <p class="mb-0 text-muted">
                 @if ($calc_total_room > 0)
                 <span class="text-success mr-2"><i class="mdi mdi-arrow-up-bold"></i>
-                  {{ round(($total_room / $total_room_last_month) * 100) }}%
+                  {{-- {{ round(($total_room / $total_room_last_month) * 100) }}% --}}
                 </span>
                 @else
                 <span class="text-danger mr-2"><i class="mdi mdi-arrow-down-bold"></i>
-                  {{ round(($total_room / $total_room_last_month) * 100) }}%
+                  {{-- {{ round(($total_room / $total_room_last_month) * 100) }}% --}}
                 </span>
                 @endif
                 <span class="text-nowrap">Since
@@ -168,9 +161,7 @@
           </div> <!-- end card-->
         </div> <!-- end col-->
       </div> <!-- end row -->
-
     </div> <!-- end col -->
-
     <div class="col-xl-7  col-lg-6">
       <div class="card">
         <div class="card-body">
@@ -178,7 +169,6 @@
           </div>
           <h4 class="header-title mb-3">Projections Vs
             Actuals</h4>
-
           <div id="high-performing-product" class="apex-charts" data-colors="#fa6767,#e3eaef">
           </div>
           <div style="height: 263px;" class="chartjs-chart">
@@ -186,7 +176,6 @@
           </div>
         </div> <!-- end card-body-->
       </div> <!-- end card-->
-
     </div> <!-- end col -->
   </div>
   <!-- end row -->

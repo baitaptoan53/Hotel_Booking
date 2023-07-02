@@ -6,12 +6,19 @@ use App\Http\Controllers\Admin\RoomController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 
-Route::get('/', [HomeController::class, 'index'])->name('welcome');
-
+Route::group(
+               [
+                              'middleware' => 'admin',
+               ],
+               function () {
+                              Route::get('/', [HomeController::class, 'index'])->name('welcome');
+               },
+);
 Route::group(
                [
                               'as' => 'users.',
                               'prefix' => 'users',
+                              'middleware' => 'admin',
                ],
                function () {
                               Route::get('/', [UsersController::class, 'index'])->name('index');
@@ -23,6 +30,7 @@ Route::group(
                [
                               'as' => 'booking.',
                               'prefix' => 'booking',
+                              'middleware' => 'admin',
                ],
                function () {
                               Route::get('/', [BookingController::class, 'index'])->name('index');
@@ -34,6 +42,7 @@ Route::group(
                [
                               'as' => 'room.',
                               'prefix' => 'room',
+                              'middleware' => 'admin',
                ],
                function () {
                               Route::get('/', [RoomController::class, 'index'])->name('index');
