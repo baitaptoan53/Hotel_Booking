@@ -57,4 +57,10 @@ return [
 
     'Select an city'=>'Select an city',
     'comment'=>'Comment',
+    'Booking Successful'=>'Booking Successful',
+    'Your Booking Details'=>'Your Booking Details',
+    'Room ID'=>'Room ID',
+    'Start Date'=>'Start Date',
+    'End Date'=>'End Date',
+    'Total Price'=>'Total Price',
 ];

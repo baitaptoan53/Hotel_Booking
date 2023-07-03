@@ -76,7 +76,27 @@ class RoomController extends Controller
         $reservation->total_price = $price;
         $reservation->discount_percent = $discount_percent;
         $reservation->save();
-        return redirect()->route('home.index');
+        return redirect()->route('booking.success')->with([
+            'room_id' => $room->id,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+            'total_price' => $price,
+        ]);
+    }
+    public function booking_success()
+    {
+        $roomId = session('room_id');
+        $startDate = session('start_date');
+        $endDate = session('end_date');
+        $price = session('total_price');
+        // Lấy các thông tin khác từ session
+        // Gửi thông tin cho view
+        return view('booking.success', [
+            'roomId' => $roomId,
+            'startDate' => $startDate,
+            'endDate' => $endDate,
+            'price' => $price,
+        ]);
     }
     public function select2_hotel(Request $request): JsonResponse
     {

@@ -22,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/booking', function () {
-    return view('booking.index');
-});
+
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home.index');
     Route::get('autocomplete', 'autocomplete')->name('autocomplete');
@@ -41,8 +39,14 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
-Route::get('/booking/{id}', [RoomController::class, 'booking'])->name('room.booking');
-Route::post('/booking/{id}', [RoomController::class, 'booking_store'])->name('room.booking.store');
+Route::group([
+    'middleware' => 'requireLogin',
+    'prefix' => 'booking',
+], function () {
+    Route::get('/success', [RoomController::class, 'booking_success'])->name('booking.success');
+    Route::get('/{id}', [RoomController::class, 'booking'])->name('room.booking');
+    Route::post('/{id}', [RoomController::class, 'booking_store'])->name('room.booking.store');
+});
 Route::get('/contact', function () {
     return view('contact.index');
 })->name('contact.index');
@@ -58,6 +62,5 @@ Route::get('/admin/users', function () {
 Route::get('select2_hotel', [RoomController::class, 'select2_hotel'])->name('select2_hotel');
 Route::get('select2_room_type', [RoomController::class, 'select2_room_type'])->name('select2_room_type');
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
-
 Route::get('lang/home', [LangController::class, 'index']);
-Route::post('/comments', [CommentController::class,'store'])->name('comments.store');
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
