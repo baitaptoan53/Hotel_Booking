@@ -45,4 +45,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(Reservation::class);
     }
+    public function isAdmin()
+    {
+        if ($this && $this->role === 'admin') {
+            return true;
+        }
+        return false;
+    }
 }

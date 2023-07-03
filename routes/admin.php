@@ -5,10 +5,13 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\RoomController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 Route::group(
                [
-                              'middleware' => 'admin',
+                              'middleware' => ['admin'],
+
                ],
                function () {
                               Route::get('/', [HomeController::class, 'index'])->name('welcome');
@@ -18,7 +21,8 @@ Route::group(
                [
                               'as' => 'users.',
                               'prefix' => 'users',
-                              'middleware' => 'admin',
+                              // dùng 2 middleware để phân quyền 
+                              'middleware' => ['admin','auth'],
                ],
                function () {
                               Route::get('/', [UsersController::class, 'index'])->name('index');
@@ -30,7 +34,8 @@ Route::group(
                [
                               'as' => 'booking.',
                               'prefix' => 'booking',
-                              'middleware' => 'admin',
+                              'middleware' => ['admin','auth'],
+
                ],
                function () {
                               Route::get('/', [BookingController::class, 'index'])->name('index');
@@ -42,7 +47,8 @@ Route::group(
                [
                               'as' => 'room.',
                               'prefix' => 'room',
-                              'middleware' => 'admin',
+                              'middleware' => ['admin','auth'],
+
                ],
                function () {
                               Route::get('/', [RoomController::class, 'index'])->name('index');

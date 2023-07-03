@@ -15,22 +15,12 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // if (auth()->user()->role == 'admin') {
-        //     return $next($request);
-        // } else {
-        //     return redirect()->route('login');
-        // }
-        //kiểm tra xem user đã đăng nhập chưa 
-        if (auth()->check()) {
-            //kiểm tra xem user có phải là admin hay không
-            if (auth()->user()->role == 'admin') {
-                return $next($request);
-            } else {
-                return redirect()->route('login');
-            }
-        } else {
-            return redirect()->route('login');
+        // Check if the user is authenticated and has the 'admin' role
+        if ($request->user() && $request->user()->role === 'admin') {
+            return redirect()->route('admin.welcome');
         }
 
+        // If not authorized, redirect to a specific route or return a response accordingly
+        return redirect()->route('home.index')->with('error', 'Unauthorized access');
     }
 }
