@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\RoomController;
@@ -47,9 +48,6 @@ Route::group([
     Route::get('/{id}', [RoomController::class, 'booking'])->name('room.booking');
     Route::post('/{id}', [RoomController::class, 'booking_store'])->name('room.booking.store');
 });
-Route::get('/contact', function () {
-    return view('contact.index');
-})->name('contact.index');
 Route::get('/about', function () {
     return view('about.index');
 })->name('about.index');
@@ -64,3 +62,5 @@ Route::get('select2_room_type', [RoomController::class, 'select2_room_type'])->n
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 Route::get('lang/home', [LangController::class, 'index']);
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.us.store');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
