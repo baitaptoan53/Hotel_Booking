@@ -35,7 +35,7 @@ class RoomController extends Controller
     }
     public function show($id)
     {
-        $room = Room::with('hotel.company', 'reserved', 'roomType')->find($id);
+        $room = Room::with('hotel.company', 'reserved')->find($id);
         $comments = Comment::where('room_id', $room->id)->orderBy('created_at', 'desc')->get();
         return view('room.show', compact('room', 'comments'));
     }
