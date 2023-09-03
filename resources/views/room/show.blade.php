@@ -27,15 +27,6 @@
     </div>
 </div>
 
-{{-- @foreach ($comments as $comment)
-<div class="card mb-3">
-    <div class="card-body">
-        <h5 class="card-title">{{ $comment->user->name }}</h5>
-        <p class="card-text">{{ $comment->content }}</p>
-        <p class="card-text"><small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small></p>
-    </div>
-</div>
-@endforeach --}}
 <div class="container mt-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
