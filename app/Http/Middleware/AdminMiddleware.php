@@ -17,7 +17,7 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
         // Kiểm tra xem người dùng đã đăng nhập hay chưa
-        if ( Auth::user()->role == 'admin') {
+        if ( Auth::check() && Auth::user()->role == 'admin') {
             // Người dùng đã đăng nhập, cho phép tiếp tục xử lý yêu cầu
             return $next($request);
         } else {

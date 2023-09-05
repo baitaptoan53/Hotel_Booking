@@ -77,7 +77,7 @@
                 {{$room_booking}}
               </h3>
               <p class="mb-0 text-muted">
-                @if ($calc_room_booking > 0 && $room_booking_last_month > 0  )
+                @if ($calc_room_booking > 0 && $room_booking_last_month > 0 )
                 <span class="text-success mr-2"><i class="mdi mdi-arrow-up-bold"></i>
                   {{ round(($room_booking / $room_booking_last_month) * 100) }}%
                 </span>
@@ -106,12 +106,12 @@
                 Revenue
               </h5>
               <h3 class="mt-3 mb-3">
-                 @if ($total_price >= 1000000000) 
-                 {{number_format($total_price / 1000000000, 2) . 'B';}}
-                 @elseif ($total_price >= 1000000) 
-                 {{number_format($total_price / 1000000, 2) . 'M';}}
-                 @else 
-                 {{number_format($total_price, 2);}}
+                @if ($total_price >= 1000000000)
+                {{number_format($total_price / 1000000000, 2) . 'B';}}
+                @elseif ($total_price >= 1000000)
+                {{number_format($total_price / 1000000, 2) . 'M';}}
+                @else
+                {{number_format($total_price, 2);}}
                 @endif
               </h3>
               <p class="mb-0 text-muted">

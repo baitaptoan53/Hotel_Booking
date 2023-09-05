@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\UsersController as AdminUsersController;
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
+use App\Http\Controllers\Admin\RoomController as AdminRoomController;
+
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -23,13 +28,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index')->name('home.index');
-    Route::get('autocomplete', 'autocomplete')->name('autocomplete');
+Route::group([
+    'prefix' => '',
+], function () {
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/', 'index')->name('home.index');
+        Route::get('autocomplete', 'autocomplete')->name('autocomplete');
+        Route::get('/city/{id}',  'city_room')->name('city.room');
+        Route::get('search',  'search')->name('search');
+    });
 });
-Route::get('search', [HomeController::class, 'search'])->name('search');
-Route::get('/city/{id}', [HomeController::class, 'city_room'])->name('city.room');
+Route::controller(HomeController::class)->group(
+    function () {
+    }
+);
 
 Auth::routes();
 Route::get('/register', function () {
@@ -59,7 +71,7 @@ Route::get('/service', function () {
 })->name('service.index');
 Route::get('/admin/users', function () {
     return view('admin.users.index');
-})->name('admin.users.index');
+})->name('admin.users.index')->middleware('admin');
 
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 Route::get('lang/home', [LangController::class, 'index']);
@@ -67,4 +79,41 @@ Route::post('/comments', [CommentController::class, 'store'])->name('comments.st
 Route::controller(ContactController::class)->group(function () {
     Route::get('/contact', 'index')->name('contact.index');
     Route::post('/contact', 'store')->name('contact.us.store');
+});
+Route::group([
+    'prefix' => 'admin',
+    'middleware' => ['admin'],
+    // 'name' => 'admin.',
+], function () {
+    Route::get('/', [AdminHomeController::class, 'index'])->name('admin.welcome');
+    Route::group(
+        [
+            // 'name' => 'users.',
+            'prefix' => 'users',
+            // dùng 2 middleware để phân quyền 
+        ],
+        function () {
+            Route::get('/', [AdminUsersController::class, 'index'])->name('admin.users.index');
+        },
+    );
+    Route::group(
+        [
+            // 'as' => 'booking.',
+            'prefix' => 'booking',
+        ],
+        function () {
+            Route::get('/', [AdminBookingController::class, 'index'])->name('admin.booking.index');
+        },
+    );
+    Route::group(
+        [
+            // 'as' => 'room.',
+            'prefix' => 'room',
+        ],
+        function () {
+            Route::get('/', [AdminRoomController::class, 'index'])->name('admin.room.index');
+            Route::get('/create', [AdminRoomController::class, 'create'])->name('admin.room.create');
+            Route::get('/{room}/edit', [AdminRoomController::class, 'edit'])->name('admin.room.edit');
+        },
+    );
 });
