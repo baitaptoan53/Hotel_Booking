@@ -29,8 +29,6 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('autocomplete', 'autocomplete')->name('autocomplete');
 });
 Route::get('search', [HomeController::class, 'search'])->name('search');
-Route::get('/room', [RoomController::class, 'index'])->name('room.index');
-Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
 Route::get('/city/{id}', [HomeController::class, 'city_room'])->name('city.room');
 
 Auth::routes();
@@ -41,12 +39,17 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 Route::group([
-    'middleware' => 'requireLogin',
     'prefix' => 'booking',
 ], function () {
-    Route::get('/success', [RoomController::class, 'booking_success'])->name('booking.success');
-    Route::get('/{id}', [RoomController::class, 'booking'])->name('room.booking');
-    Route::post('/{id}', [RoomController::class, 'booking_store'])->name('room.booking.store');
+    Route::controller(RoomController::class)->group(function () {
+        Route::get('/success', 'booking_success')->name('booking.success')->middleware('requireLogin');
+        Route::get('/{id}', 'booking')->name('room.booking')->middleware('requireLogin');
+        Route::post('/{id}', 'booking_store')->name('room.booking.store')->middleware('requireLogin');
+        Route::get('select2_hotel',  'select2_hotel')->name('select2_hotel');
+        Route::get('select2_room_type',  'select2_room_type')->name('select2_room_type');
+        Route::get('/room',  'index')->name('room.index');
+        Route::get('/room/{id}',  'show')->name('room.show');
+    });
 });
 Route::get('/about', function () {
     return view('about.index');
@@ -57,10 +60,11 @@ Route::get('/service', function () {
 Route::get('/admin/users', function () {
     return view('admin.users.index');
 })->name('admin.users.index');
-Route::get('select2_hotel', [RoomController::class, 'select2_hotel'])->name('select2_hotel');
-Route::get('select2_room_type', [RoomController::class, 'select2_room_type'])->name('select2_room_type');
+
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 Route::get('lang/home', [LangController::class, 'index']);
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.us.store');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::controller(ContactController::class)->group(function () {
+    Route::get('/contact', 'index')->name('contact.index');
+    Route::post('/contact', 'store')->name('contact.us.store');
+});

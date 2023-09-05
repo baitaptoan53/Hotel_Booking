@@ -10,8 +10,7 @@ use Illuminate\Http\Request;
 
 Route::group(
                [
-                              'middleware' => ['admin'],
-
+                              'middleware' => [],
                ],
                function () {
                               Route::get('/', [HomeController::class, 'index'])->name('welcome');
@@ -22,7 +21,7 @@ Route::group(
                               'as' => 'users.',
                               'prefix' => 'users',
                               // dùng 2 middleware để phân quyền 
-                              'middleware' => ['admin','auth'],
+                              'middleware' => [],
                ],
                function () {
                               Route::get('/', [UsersController::class, 'index'])->name('index');
@@ -34,7 +33,7 @@ Route::group(
                [
                               'as' => 'booking.',
                               'prefix' => 'booking',
-                              'middleware' => ['admin','auth'],
+                              'middleware' => [],
 
                ],
                function () {
@@ -47,7 +46,7 @@ Route::group(
                [
                               'as' => 'room.',
                               'prefix' => 'room',
-                              'middleware' => ['admin','auth'],
+                              'middleware' => [],
 
                ],
                function () {

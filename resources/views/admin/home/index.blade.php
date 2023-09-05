@@ -46,14 +46,14 @@
                 {{$users}}
               </h3>
               <p class="mb-0 text-muted">
-                @if ($calc_users > 0)
+                @if ($calc_users > 0 && $users_last_month> 0)
                 <span class="text-success mr-2"><i class="mdi mdi-arrow-up-bold"></i>
                   {{ round(($users / $users_last_month) * 100) }}%
                 </span>
-                @else
+                {{-- @else
                 <span class="text-danger mr-2"><i class="mdi mdi-arrow-down-bold"></i>
                   {{ round(($users / $users_last_month) * 100) }}%
-                </span>
+                </span> --}}
                 @endif
                 <span class="text-nowrap">
                   Since
@@ -77,14 +77,14 @@
                 {{$room_booking}}
               </h3>
               <p class="mb-0 text-muted">
-                @if ($calc_room_booking > 0)
+                @if ($calc_room_booking > 0 && $room_booking_last_month > 0  )
                 <span class="text-success mr-2"><i class="mdi mdi-arrow-up-bold"></i>
                   {{ round(($room_booking / $room_booking_last_month) * 100) }}%
                 </span>
-                @else
+                {{-- @else
                 <span class="text-danger mr-2"><i class="mdi mdi-arrow-down-bold"></i>
                   {{ round(($room_booking / $room_booking_last_month) * 100) }}%
-                </span>
+                </span> --}}
                 @endif
                 <span class="text-nowrap">Since
                   last
@@ -115,14 +115,14 @@
                 @endif
               </h3>
               <p class="mb-0 text-muted">
-                @if ($calc_total_price > 0)
+                @if ($calc_total_price > 0 && $total_price_last_month > 0)
                 <span class="text-success mr-2"><i class="mdi mdi-arrow-up-bold"></i>
                   {{ round(($total_price / $total_price_last_month) * 100) }}%
                 </span>
-                @else
+                {{-- @else
                 <span class="text-danger mr-2"><i class="mdi mdi-arrow-down-bold"></i>
                   {{ round(($total_price / $total_price_last_month) * 100) }}%
-                </span>
+                </span> --}}
                 @endif
                 <span class="text-nowrap">Since
                   last

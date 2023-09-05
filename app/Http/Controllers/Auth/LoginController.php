@@ -39,17 +39,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    public function login(Request $request)
-    {
-        $input = $request->all();
-        if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']])) {
-            if (auth()->user()->role == 'admin') {
-                return redirect()->route('admin.welcome');
-            } else {
-                return redirect()->route('home.index');
-            }
-        } else {
-            return redirect()->route('login')->with('msg', 'False email or password');
+    public function redirectTo(){
+        $role = auth()->user()->role;
+        if ($role == 'admin') {
+            return $this->redirectToAdmin;
         }
+        return $this->redirectTo;
     }
 }

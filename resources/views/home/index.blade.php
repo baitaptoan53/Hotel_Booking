@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('title', config('app.name'))
 @section('content')
-
 <!-- Carousel Start -->
 <div class="container-fluid p-0 mb-5">
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
