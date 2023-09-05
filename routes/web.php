@@ -57,12 +57,19 @@ Route::group([
         Route::get('/success', 'booking_success')->name('booking.success')->middleware('requireLogin');
         Route::get('/{id}', 'booking')->name('room.booking')->middleware('requireLogin');
         Route::post('/{id}', 'booking_store')->name('room.booking.store')->middleware('requireLogin');
-        Route::get('select2_hotel',  'select2_hotel')->name('select2_hotel');
-        Route::get('select2_room_type',  'select2_room_type')->name('select2_room_type');
+
         Route::get('/room',  'index')->name('room.index');
         Route::get('/room/{id}',  'show')->name('room.show');
     });
 });
+Route::controller(RoomController::class)->group(
+    function () {
+        Route::get('select2_hotel',  'select2_hotel')->name('select2_hotel');
+        Route::get('select2_room_type',  'select2_room_type')->name('select2_room_type');
+    }
+);
+
+
 Route::get('/about', function () {
     return view('about.index');
 })->name('about.index');
