@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\RoomController as AdminRoomController;
+use App\Http\Controllers\Admin\CityController as AdminCityController;
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
@@ -36,6 +37,7 @@ Route::group([
         Route::get('autocomplete', 'autocomplete')->name('autocomplete');
         Route::get('/city/{id}',  'city_room')->name('city.room');
         Route::get('search',  'search')->name('search');
+        Route::get('select2_country',  'select2_country')->name('select2_country');
     });
 });
 Route::controller(HomeController::class)->group(
@@ -57,7 +59,6 @@ Route::group([
         Route::get('/success', 'booking_success')->name('booking.success')->middleware('requireLogin');
         Route::get('/{id}', 'booking')->name('room.booking')->middleware('requireLogin');
         Route::post('/{id}', 'booking_store')->name('room.booking.store')->middleware('requireLogin');
-
         Route::get('/room',  'index')->name('room.index');
         Route::get('/room/{id}',  'show')->name('room.show');
     });
@@ -121,6 +122,16 @@ Route::group([
             Route::get('/', [AdminRoomController::class, 'index'])->name('admin.room.index');
             Route::get('/create', [AdminRoomController::class, 'create'])->name('admin.room.create');
             Route::get('/{room}/edit', [AdminRoomController::class, 'edit'])->name('admin.room.edit');
+        },
+    );
+    Route::group(
+        [
+            'prefix' => 'city',
+        ],
+        function () {
+            Route::get('/', [AdminCityController::class, 'index'])->name('admin.city.index');
+            Route::get('/create', [AdminCityController::class, 'create'])->name('admin.city.create');
+            Route::get('/{city}/edit', [AdminCityController::class, 'edit'])->name('admin.city.edit');
         },
     );
 });

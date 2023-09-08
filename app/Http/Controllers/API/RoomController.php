@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use App\Models\Room;
 use App\Http\Resources\Room as ResourcesRoom;
 use App\Models\RoomReserved;

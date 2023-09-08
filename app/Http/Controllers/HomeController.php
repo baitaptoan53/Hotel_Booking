@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\City;
-
+use App\Models\Country;
 use App\Models\Hotel;
 use App\Models\Room;
 use Illuminate\Http\JsonResponse;
@@ -30,6 +30,18 @@ class HomeController extends Controller
         if ($request->filled('q')) {
             $data = City::select("city_name", "id")
                 ->where('city_name', 'LIKE', '%' . $request->get('q') . '%')
+                ->get();
+        }
+
+        return response()->json($data);
+    }
+    public function select2_country(Request $request): JsonResponse
+    {
+        $data = [];
+
+        if ($request->filled('q')) {
+            $data = Country::select("country_name", "id")
+                ->where('country_name', 'LIKE', '%' . $request->get('q') . '%')
                 ->get();
         }
 
